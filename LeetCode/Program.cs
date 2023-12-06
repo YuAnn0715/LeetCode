@@ -283,12 +283,18 @@ namespace LeetCode
             //int result = FindMaxConsecutiveOnes(nums);
             //Console.WriteLine(result);
 
-            int area = 37;
-            int[] result = ConstructRectangle(area);
-            foreach (int item in result)
-            {
-                Console.WriteLine(item);
-            }
+            //485. Max Consecutive Ones(最大連續數)  *Submit完成
+            //int area = 37;
+            //int[] result = ConstructRectangle(area);
+            //foreach (int item in result)
+            //{
+            //    Console.WriteLine(item);
+            //}
+
+            int[] timeSeries = { 1, 3, 5, 7, 9, 11, 13, 15 };
+            int duration = 3;
+            int result = FindPoisonedDuration(timeSeries, duration);
+            Console.WriteLine(result);
         }
 
         //=====================解題區=======================
@@ -1002,6 +1008,22 @@ namespace LeetCode
 
         //217. Contains Duplicate(包含重複項)  *Submit完成
 
+        static bool ContainsDuplicate(int[] nums)
+        {
+            int add = 0;
+            for (int i = 0; i < nums.Length; i++)
+            {
+                add++;
+                for (int j = add; j < nums.Length; j++)
+                {
+                    if (nums[i] == nums[j])
+                    {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
         //231. Power of Two(二的幕)   *Submit完成
         static bool IsPowerOfTwo(int n)
         {
@@ -1491,10 +1513,42 @@ namespace LeetCode
             while (area % w != 0)
             {
                 w--;
-            } 
+            }
             return [area / w, w];
         }
-        
+
+
+        //495. Teemo Attacking(提摩攻擊)  *Submit完成
+        static int FindPoisonedDuration(int[] timeSeries, int duration)
+        {
+            int secondCount = 0;
+            for (int i = 0; i < timeSeries.Length; i++)
+            {
+                //最後結束
+                if (i == timeSeries.Length - 1)
+                {
+                    secondCount = secondCount + duration;
+                    break;
+                }
+                else
+                {
+                    if (timeSeries[i] + duration <= timeSeries[i + 1])
+                    {
+                        secondCount += duration;
+
+                    }
+                    else
+                    {
+                        //間隔
+                        secondCount += timeSeries[i+1]- timeSeries[i];
+                    }
+                }
+            }
+            return secondCount;
+        }
+
+
+
         public class ListNode
         {
             public int val;
