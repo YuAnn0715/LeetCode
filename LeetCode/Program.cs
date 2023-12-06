@@ -484,7 +484,6 @@ namespace LeetCode
         }
 
         //21. Merge Two Sorted Lists(合併兩個表)  *Submit完成
-        static ListNode MergeTwoLists(ListNode list1, ListNode list2)
         static ListNode? MergeTwoLists(ListNode list1, ListNode list2)
         {
             if (list1 == null)
@@ -1493,7 +1492,6 @@ namespace LeetCode
             {
                 w--;
             } 
-            return new int[] { area / w, w };
             return [area / w, w];
         }
         
