@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Text;
 using LeetCode;
 using static System.Runtime.InteropServices.JavaScript.JSType;
@@ -291,10 +292,19 @@ namespace LeetCode
             //    Console.WriteLine(item);
             //}
 
-            int[] timeSeries = { 1, 3, 5, 7, 9, 11, 13, 15 };
-            int duration = 3;
-            int result = FindPoisonedDuration(timeSeries, duration);
-            Console.WriteLine(result);
+            //495. Teemo Attacking(提摩攻擊)  *Submit完成
+            //int[] timeSeries = { 1, 3, 5, 7, 9, 11, 13, 15 };
+            //int duration = 3;
+            //int result = FindPoisonedDuration(timeSeries, duration);
+            //Console.WriteLine(result);
+
+            //500. Keyboard Row(鍵盤列)   *Submit完成
+            string[] words = { "Hello", "Alaska", "Dad", "Peace" };
+            string[] result = FindWords(words);
+            foreach (string item in result)
+            {
+                Console.WriteLine(item);
+            }
         }
 
         //=====================解題區=======================
@@ -1527,7 +1537,7 @@ namespace LeetCode
                 //最後結束
                 if (i == timeSeries.Length - 1)
                 {
-                    secondCount = secondCount + duration;
+                    secondCount += duration;
                     break;
                 }
                 else
@@ -1540,14 +1550,82 @@ namespace LeetCode
                     else
                     {
                         //間隔
-                        secondCount += timeSeries[i+1]- timeSeries[i];
+                        secondCount += timeSeries[i + 1] - timeSeries[i];
                     }
                 }
             }
             return secondCount;
         }
 
-
+        //500. Keyboard Row(鍵盤列)   *Submit完成
+        static string[] FindWords(string[] words)
+        {
+            string firstRow = "qwertyuiopQWERTYUIOP";
+            string secondRow = "asdfghjklASDFGHJKL";
+            string thirdRow = "zxcvbnmZXCVBNM";
+            List<string> answer = new List<string>();
+            for (int i = 0; i < words.Length; i++)
+            {
+                if (firstRow.Contains(words[i][0]))
+                {
+                    int count = 0;
+                    for (int j = 0; j < words[i].Length; j++)
+                    {
+                        if (!firstRow.Contains(words[i][j]))
+                        {
+                            break;
+                        }
+                        else
+                        {
+                            count++;
+                        }
+                        if (count == words[i].Length)
+                        {
+                            answer.Add(words[i]);
+                        }
+                    }
+                }
+                else if (secondRow.Contains(words[i][0]))
+                {
+                    int count = 0;
+                    for (int j = 0; j < words[i].Length; j++)
+                    {
+                        if (!secondRow.Contains(words[i][j]))
+                        {
+                            break;
+                        }
+                        else
+                        {
+                            count++;
+                        }
+                        if (count == words[i].Length)
+                        {
+                            answer.Add(words[i]);
+                        }
+                    }
+                }
+                else if (thirdRow.Contains(words[i][0]))
+                {
+                    int count = 0;
+                    for (int j = 0; j < words[i].Length; j++)
+                    {
+                        if (!thirdRow.Contains(words[i][j]))
+                        {
+                            break;
+                        }
+                        else
+                        {
+                            count++;
+                        }
+                        if (count == words[i].Length)
+                        {
+                            answer.Add(words[i]);
+                        }
+                    }
+                }
+            }
+            return answer.ToArray();
+        }
 
         public class ListNode
         {
