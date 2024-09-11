@@ -168,6 +168,13 @@ namespace LeetCode
             //bool result = ContainsDuplicate(nums);
             //Console.WriteLine(result);
 
+            //219. 
+            int[] nums = { 1, 2, 3, 1 };
+            int k = 3;
+            bool result = ContainsNearbyDuplicate(nums,k);
+            Console.WriteLine(result);
+
+
             //231. Power of Two(二的幕)   *Submit完成
             //int n = 16;
             //bool result = IsPowerOfTwo(n);
@@ -299,12 +306,25 @@ namespace LeetCode
             //Console.WriteLine(result);
 
             //500. Keyboard Row(鍵盤列)   *Submit完成
-            string[] words = { "Hello", "Alaska", "Dad", "Peace" };
-            string[] result = FindWords(words);
-            foreach (string item in result)
-            {
-                Console.WriteLine(item);
-            }
+            //string[] words = { "Hello", "Alaska", "Dad", "Peace" };
+            //string[] result = FindWords(words);
+            //foreach (string item in result)
+            //{
+            //    Console.WriteLine(item);
+            //}
+
+            //506. Relative Ranks(相對排名)  *Submit完成
+            //int[] score = { 10, 3, 8, 9, 4 };
+            //string[] result = FindRelativeRanks(score);
+            //foreach (string item in result)
+            //{
+            //    Console.WriteLine(item);
+            //}
+
+            //int n = 2;
+            //int result = Fib(n);
+            //Console.WriteLine(result);
+
         }
 
         //=====================解題區=======================
@@ -769,6 +789,12 @@ namespace LeetCode
             return current;
         }
 
+        //83
+        //static ListNode DeleteDuplicates(ListNode head)
+        //{
+            
+        //}
+
         //88. Merge Sorted Array(合併排序數組)  *Submit完成
         static int[] Merge(int[] nums1, int m, int[] nums2, int n)
         {
@@ -1017,7 +1043,6 @@ namespace LeetCode
         }
 
         //217. Contains Duplicate(包含重複項)  *Submit完成
-
         static bool ContainsDuplicate(int[] nums)
         {
             int add = 0;
@@ -1034,6 +1059,27 @@ namespace LeetCode
             }
             return false;
         }
+
+        //219. Contains Duplicate II(包含重複 二)  *Submit完成
+        static bool ContainsNearbyDuplicate(int[] nums, int k)
+        {
+            Dictionary<int, int> numIndices = new Dictionary<int, int>();
+
+            for (int i = 0; i < nums.Length; i++)
+            {
+                if (numIndices.ContainsKey(nums[i]))
+                {
+                    if (i - numIndices[nums[i]] <= k)
+                    {
+                        return true;
+                    }
+                }
+                numIndices[nums[i]] = i;
+            }
+
+            return false;
+        }
+
         //231. Power of Two(二的幕)   *Submit完成
         static bool IsPowerOfTwo(int n)
         {
@@ -1626,6 +1672,58 @@ namespace LeetCode
             }
             return answer.ToArray();
         }
+
+        //506. Relative Ranks(相對排名)  *Submit完成
+        static string[] FindRelativeRanks(int[] score)
+        {
+            List<string> rankList = new List<string>();
+            for (int i = 0; i < score.Length; i++)
+            {
+                int point = 0;
+                for (int j = 0; j < score.Length; j++)
+                {
+                    if (score[i] >= score[j])
+                    {
+                        point++;
+                    }
+                }
+                int rank = score.Length + 1 - point;
+                rankList.Add(rank.ToString());
+            }
+            for (int i = 0; i < rankList.Count; i++)
+            {
+                string rank = rankList[i];
+                int topThree = 0;
+                switch (rank)
+                {
+                    case "1":
+                        rankList[i] = "Gold Medal";
+                        topThree++;
+                        break;
+                    case "2":
+                        rankList[i] = "Silver Medal";
+                        topThree++;
+                        break;
+                    case "3":
+                        rankList[i] = "Bronze Medal";
+                        topThree++;
+                        break;
+                    default:
+                        break;
+                }
+                if (topThree == 3)
+                {
+                    break;
+                }
+            }
+            return rankList.ToArray();
+        }
+
+        //509. Fibonacci Number()
+        //static int Fib(int n)
+        //{
+            
+        //}
 
         public class ListNode
         {
