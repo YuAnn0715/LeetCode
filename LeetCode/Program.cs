@@ -168,10 +168,10 @@ namespace LeetCode
             //bool result = ContainsDuplicate(nums);
             //Console.WriteLine(result);
 
-            //219. 
+            //219. Contains Duplicate II(包含重複項 二)  *Submit完成
             int[] nums = { 1, 2, 3, 1 };
             int k = 3;
-            bool result = ContainsNearbyDuplicate(nums,k);
+            bool result = ContainsNearbyDuplicate(nums, k);
             Console.WriteLine(result);
 
 
@@ -792,7 +792,7 @@ namespace LeetCode
         //83
         //static ListNode DeleteDuplicates(ListNode head)
         //{
-            
+
         //}
 
         //88. Merge Sorted Array(合併排序數組)  *Submit完成
@@ -1045,22 +1045,21 @@ namespace LeetCode
         //217. Contains Duplicate(包含重複項)  *Submit完成
         static bool ContainsDuplicate(int[] nums)
         {
-            int add = 0;
+            Dictionary<int, int> numIndices = new Dictionary<int, int>();
+
             for (int i = 0; i < nums.Length; i++)
             {
-                add++;
-                for (int j = add; j < nums.Length; j++)
+                if (numIndices.ContainsKey(nums[i]))
                 {
-                    if (nums[i] == nums[j])
-                    {
-                        return true;
-                    }
+                    return true;
                 }
+                numIndices[nums[i]] = i;
             }
+
             return false;
         }
 
-        //219. Contains Duplicate II(包含重複 二)  *Submit完成
+        //219. Contains Duplicate II(包含重複項 二)  *Submit完成
         static bool ContainsNearbyDuplicate(int[] nums, int k)
         {
             Dictionary<int, int> numIndices = new Dictionary<int, int>();
@@ -1722,7 +1721,7 @@ namespace LeetCode
         //509. Fibonacci Number()
         //static int Fib(int n)
         //{
-            
+
         //}
 
         public class ListNode
