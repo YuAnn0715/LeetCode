@@ -1178,10 +1178,11 @@ namespace LeetCode
                     missNumber = i;
                     break;
                 }
-
             }
             return missNumber;
         }
+
+
 
         //326. Power of Three(三的幕)  *Submit完成
         static bool IsPowerOfThree(int n)
