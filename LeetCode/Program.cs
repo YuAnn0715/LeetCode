@@ -169,10 +169,10 @@ namespace LeetCode
             //Console.WriteLine(result);
 
             //219. Contains Duplicate II(包含重複項 二)  *Submit完成
-            int[] nums = { 1, 2, 3, 1 };
-            int k = 3;
-            bool result = ContainsNearbyDuplicate(nums, k);
-            Console.WriteLine(result);
+            //int[] nums = { 1, 2, 3, 1 };
+            //int k = 3;
+            //bool result = ContainsNearbyDuplicate(nums, k);
+            //Console.WriteLine(result);
 
 
             //231. Power of Two(二的幕)   *Submit完成
@@ -262,6 +262,12 @@ namespace LeetCode
             //string t = "ahbgdc";
             //bool result= IsSubsequence(s, t);
             //Console.WriteLine(result);
+
+            //448. Find All Numbers Disappeared in an Array(找出數組所有消失的數字)
+            int[] nums = { 4, 3, 2, 7, 8, 2, 3, 1 };
+            IList<int> result = FindDisappearedNumbers(nums);
+            Console.WriteLine(result);
+
 
             //455. Assign Cookies(分配餅乾)  *Submit完成
             //int[] g = { 3, 2, 1 };
@@ -1428,6 +1434,20 @@ namespace LeetCode
                 j++;
             }
             return i == s.Length;
+        }
+
+        //448. Find All Numbers Disappeared in an Array(找出數組中所有消失的數字)   *Submit完成
+        static IList<int> FindDisappearedNumbers(int[] nums)
+        {
+            List<int> missNums = [];
+            for (int i = 1; i < nums.Length+1; i++)
+            {
+                if (!nums.Contains(i))
+                {
+                    missNums.Add(i);
+                }
+            }
+            return missNums;
         }
 
         //455. Assign Cookies(分配餅乾)  *Submit完成
