@@ -1445,7 +1445,7 @@ namespace LeetCode
                 if (!nums.Contains(i))
                 {
                     missNums.Add(i);
-                }
+                } 
             }
             return missNums;
         }
@@ -1660,7 +1660,7 @@ namespace LeetCode
                         {
                             break;
                         }
-                        else
+                        else  
                         {
                             count++;
                         }
@@ -1739,11 +1739,43 @@ namespace LeetCode
             return rankList.ToArray();
         }
 
-        //509. Fibonacci Number()
-        //static int Fib(int n)
-        //{
-
-        //}
+        //520. Detect Capital(檢查大寫)
+        static bool DetectCapitalUse(string word)
+        {
+            List<char> upWord = new List<char>();
+            upWord = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
+            if (upWord.Contains(word[0]))
+            {
+                int upSum = 1;
+                for (int i = 1; i < word.Length; i++)
+                {
+                    if (upWord.Contains(word[i]))
+                    {
+                        upSum++;
+                    }
+                }
+                if (upSum == word.Length || upSum == 1)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                //都小寫
+                for (int i = 1; i < word.Length; i++)
+                {
+                    if (upWord.Contains(word[i]))
+                    {
+                        return false;
+                    }
+                }
+                return true;
+            }
+        }
 
         public class ListNode
         {
