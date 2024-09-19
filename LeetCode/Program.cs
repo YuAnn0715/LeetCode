@@ -264,10 +264,9 @@ namespace LeetCode
             //Console.WriteLine(result);
 
             //448. Find All Numbers Disappeared in an Array(找出數組所有消失的數字)
-            int[] nums = { 4, 3, 2, 7, 8, 2, 3, 1 };
-            IList<int> result = FindDisappearedNumbers(nums);
-            Console.WriteLine(result);
-
+            //int[] nums = { 4, 3, 2, 7, 8, 2, 3, 1 };
+            //IList<int> result = FindDisappearedNumbers(nums);
+            //Console.WriteLine(result);
 
             //455. Assign Cookies(分配餅乾)  *Submit完成
             //int[] g = { 3, 2, 1 };
@@ -326,6 +325,16 @@ namespace LeetCode
             //{
             //    Console.WriteLine(item);
             //}
+
+            //520. Detect Capital(檢查大寫)  *Submit完成
+            //string word = "USA";
+            //bool result = DetectCapitalUse(word);
+            //Console.WriteLine(result);
+
+            //551. Student Attendance Record I(學生出勤記錄 I)  *Submit完成
+            string s = "ALLAPPL";
+            bool result=CheckRecord(s);
+            Console.WriteLine(result);
 
             //int n = 2;
             //int result = Fib(n);
@@ -1739,7 +1748,7 @@ namespace LeetCode
             return rankList.ToArray();
         }
 
-        //520. Detect Capital(檢查大寫)
+        //520. Detect Capital(檢查大寫)  *Submit完成
         static bool DetectCapitalUse(string word)
         {
             List<char> upWord = new List<char>();
@@ -1773,6 +1782,48 @@ namespace LeetCode
                         return false;
                     }
                 }
+                return true;
+            }
+        }
+
+        //551 Student Attendance Record I(學生出勤記錄 I)   *Submit完成
+        static bool CheckRecord(string s)
+        {
+            int sumA = 0;
+            for (int i = 0; i < s.Length; i++)
+            {
+                if (s[i]=='A')
+                {
+                    sumA++;
+                }
+                if (s[i]=='L')
+                {
+                    int sumL = 0;
+                    while (i<s.Length)
+                    {
+                        if (s[i]=='L')
+                        {
+                            i++;
+                            sumL++;
+                        }
+                        else 
+                        {
+                            i--;
+                            break;
+                        }
+                    }
+                    if (sumL >= 3)
+                    {
+                        return false;
+                    }
+                }
+            }
+            if (sumA >= 2)
+            {
+                return false;
+            }
+            else
+            {
                 return true;
             }
         }
