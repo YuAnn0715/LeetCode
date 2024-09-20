@@ -1847,6 +1847,8 @@ namespace LeetCode
             }
 
             // 取糖果種類跟一半糖果 哪個最小 return
+            // 如果糖果種類比吃一半小 那怎麼吃都只會只有種類數量 吃不到一半
+            // 反之  一半的數量比種類小 那怎麼吃 都只能吃一半的量
             return Math.Min(uniqueCandies.Count, halfCandy);
         }
 
