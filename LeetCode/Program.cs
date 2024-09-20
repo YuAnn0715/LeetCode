@@ -332,8 +332,13 @@ namespace LeetCode
             //Console.WriteLine(result);
 
             //551. Student Attendance Record I(學生出勤記錄 I)  *Submit完成
-            string s = "ALLAPPL";
-            bool result=CheckRecord(s);
+            //string s = "ALLAPPL";
+            //bool result=CheckRecord(s);
+            //Console.WriteLine(result);
+
+            //575. Distribute Candies(分發糖果)   *Submit完成
+            int[] candyType = {1,1,2,2,3,3 };
+            int result = DistributeCandies(candyType);
             Console.WriteLine(result);
 
             //int n = 2;
@@ -1826,6 +1831,23 @@ namespace LeetCode
             {
                 return true;
             }
+        }
+
+        //575. Distribute Candies(分發糖果)   *Submit完成
+        static int DistributeCandies(int[] candyType)
+        {
+            int halfCandy = candyType.Length / 2;
+            // 唯一元素HashSet
+            HashSet<int> uniqueCandies = new HashSet<int>();
+
+            // 計算不同type數量
+            foreach (int candy in candyType)
+            {
+                uniqueCandies.Add(candy);
+            }
+
+            // 取糖果種類跟一半糖果 哪個最小 return
+            return Math.Min(uniqueCandies.Count, halfCandy);
         }
 
         public class ListNode
