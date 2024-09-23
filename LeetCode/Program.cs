@@ -318,6 +318,11 @@ namespace LeetCode
             //    Console.WriteLine(item);
             //}
 
+            //504. Base 7(基礎7)
+            int num = -7;
+            string result = ConvertToBase7(num);
+            Console.WriteLine(result);
+
             //506. Relative Ranks(相對排名)  *Submit完成
             //int[] score = { 10, 3, 8, 9, 4 };
             //string[] result = FindRelativeRanks(score);
@@ -337,9 +342,9 @@ namespace LeetCode
             //Console.WriteLine(result);
 
             //575. Distribute Candies(分發糖果)   *Submit完成
-            int[] candyType = {1,1,2,2,3,3 };
-            int result = DistributeCandies(candyType);
-            Console.WriteLine(result);
+            //int[] candyType = { 1, 1, 2, 2, 3, 3 };
+            //int result = DistributeCandies(candyType);
+            //Console.WriteLine(result);
 
             //int n = 2;
             //int result = Fib(n);
@@ -1454,12 +1459,12 @@ namespace LeetCode
         static IList<int> FindDisappearedNumbers(int[] nums)
         {
             List<int> missNums = [];
-            for (int i = 1; i < nums.Length+1; i++)
+            for (int i = 1; i < nums.Length + 1; i++)
             {
                 if (!nums.Contains(i))
                 {
                     missNums.Add(i);
-                } 
+                }
             }
             return missNums;
         }
@@ -1674,7 +1679,7 @@ namespace LeetCode
                         {
                             break;
                         }
-                        else  
+                        else
                         {
                             count++;
                         }
@@ -1705,6 +1710,23 @@ namespace LeetCode
                 }
             }
             return answer.ToArray();
+        }
+
+        //504 Base 7(基礎7)   *Submit完成
+        static string ConvertToBase7(int num)
+        {
+            if (num == 0) return "0";
+            bool isNegative = num < 0;
+            num = Math.Abs(num);
+            List<string> convertToBase7 =[];
+            while (num > 0)
+            {
+                int remainder = num % 7;
+                convertToBase7.Insert(0, remainder.ToString());
+                num /= 7;
+            }
+            string result = string.Join("", convertToBase7);
+            return isNegative ? "-" + result : result;
         }
 
         //506. Relative Ranks(相對排名)  *Submit完成
@@ -1757,7 +1779,7 @@ namespace LeetCode
         static bool DetectCapitalUse(string word)
         {
             List<char> upWord = new List<char>();
-            upWord = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
+            upWord = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
             if (upWord.Contains(word[0]))
             {
                 int upSum = 1;
@@ -1797,21 +1819,21 @@ namespace LeetCode
             int sumA = 0;
             for (int i = 0; i < s.Length; i++)
             {
-                if (s[i]=='A')
+                if (s[i] == 'A')
                 {
                     sumA++;
                 }
-                if (s[i]=='L')
+                if (s[i] == 'L')
                 {
                     int sumL = 0;
-                    while (i<s.Length)
+                    while (i < s.Length)
                     {
-                        if (s[i]=='L')
+                        if (s[i] == 'L')
                         {
                             i++;
                             sumL++;
                         }
-                        else 
+                        else
                         {
                             i--;
                             break;
