@@ -263,6 +263,11 @@ namespace LeetCode
             //bool result= IsSubsequence(s, t);
             //Console.WriteLine(result);
 
+            //412. Fizz Buzz(蜂鳴聲)  *Submit完成
+            int n = 15;
+            IList<string> result = FizzBuzz(n);
+            Console.WriteLine(result);
+
             //448. Find All Numbers Disappeared in an Array(找出數組所有消失的數字)
             //int[] nums = { 4, 3, 2, 7, 8, 2, 3, 1 };
             //IList<int> result = FindDisappearedNumbers(nums);
@@ -318,10 +323,10 @@ namespace LeetCode
             //    Console.WriteLine(item);
             //}
 
-            //504. Base 7(基礎7)
-            int num = -7;
-            string result = ConvertToBase7(num);
-            Console.WriteLine(result);
+            //504. Base 7(基礎7)  *Submit完成
+            //int num = -7;
+            //string result = ConvertToBase7(num);
+            //Console.WriteLine(result);
 
             //506. Relative Ranks(相對排名)  *Submit完成
             //int[] score = { 10, 3, 8, 9, 4 };
@@ -1455,6 +1460,37 @@ namespace LeetCode
             return i == s.Length;
         }
 
+        //412. Fizz Buzz(蜂鳴聲)  *Submit完成
+        static IList<string> FizzBuzz(int n)
+        {
+            List<string> nums = [];
+            for (int i = 1; i < n + 1; i++)
+            {
+                nums.Add(i.ToString());
+            }
+            for (int i = 0; i < nums.Count; i++)
+            {
+                int num = Convert.ToInt32(nums[i]);
+                if (num % 3 == 0 && num % 5 == 0)
+                {
+                    nums[i] = "FizzBuzz";
+                }
+                else if (num % 3 == 0)
+                {
+                    nums[i] = "Fizz";
+                }
+                else if (num % 5 == 0)
+                {
+                    nums[i] = "Buzz";
+                }
+                else
+                {
+                    continue;
+                }
+            }
+            return nums;
+        }
+
         //448. Find All Numbers Disappeared in an Array(找出數組中所有消失的數字)   *Submit完成
         static IList<int> FindDisappearedNumbers(int[] nums)
         {
@@ -1712,13 +1748,13 @@ namespace LeetCode
             return answer.ToArray();
         }
 
-        //504 Base 7(基礎7)   *Submit完成
+        //504 Base 7(基礎7)  *Submit完成
         static string ConvertToBase7(int num)
         {
             if (num == 0) return "0";
             bool isNegative = num < 0;
             num = Math.Abs(num);
-            List<string> convertToBase7 =[];
+            List<string> convertToBase7 = [];
             while (num > 0)
             {
                 int remainder = num % 7;
