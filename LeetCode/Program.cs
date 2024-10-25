@@ -28,6 +28,8 @@ namespace LeetCode
             IAddBinary addBinary = new AddBinaryCode();
             IMySqrt mySqrt = new MySqrtCode();
             IClimbStairs climbStairs = new ClimbStairsCode();
+            IMerge merge = new MergeCode();
+            IMaxProfit maxProfit = new MaxProfitCode();
             
             Test test = new Test();
             //========================測試區=======================
@@ -77,20 +79,10 @@ namespace LeetCode
             test.ClimbStairs(climbStairs);
 
             //88. Merge Sorted Array(合併排序數組)  *Submit完成
-            //int[] nums1 = { 1, 2, 3, 0, 0, 0 };
-            //int[] nums2 = { 2, 5, 6 };
-            //int m = 3;
-            //int n = 3;
-            //int[] result = Merge(nums1, m, nums2, n);
-            //foreach (var item in result)
-            //{
-            //    Console.WriteLine(item);
-            //}
+            test.Merge(merge);
 
             //121. Best Time to Buy and Sell Stock(買賣股票的最佳時機)  *Submit完成
-            //int[] prices = { 7, 1, 5, 3, 6, 4 };
-            //int result = MaxProfit(prices);
-            //Console.WriteLine(result);
+            test.MaxProfit(maxProfit);
 
             //125. Valid Palindrome(有效回文)  *Submit完成
             //string s = "A man, a plan, a canal:Panama";
@@ -331,59 +323,7 @@ namespace LeetCode
             //Console.WriteLine(result);
 
         }
-
         //=====================解題區=======================
-        //88. Merge Sorted Array(合併排序數組)  *Submit完成
-        static int[] Merge(int[] nums1, int m, int[] nums2, int n)
-        {
-            int i = m - 1;
-            int j = n - 1;
-            int k = m + n - 1;
-
-            while (i >= 0 && j >= 0)
-            {
-                if (nums1[i] > nums2[j])
-                {
-                    nums1[k] = nums1[i];
-                    i--;
-                }
-                else
-                {
-                    nums1[k] = nums2[j];
-                    j--;
-                }
-                k--;
-            }
-            while (j >= 0)
-            {
-                nums1[k] = nums2[j];
-                j--;
-                k--;
-            }
-            //配合測試案例修改
-            return nums1;
-        }
-
-        //121. Best Time to Buy and Sell Stock(買賣股票的最佳時機)  *Submit完成
-        static int MaxProfit(int[] prices)
-        {
-            int maxProfit = 0;
-            int minPrice = int.MaxValue;
-
-            for (int i = 0; i < prices.Length; i++)
-            {
-                if (prices[i] < minPrice)
-                {
-                    minPrice = prices[i];
-                }
-                else if (prices[i] - minPrice > maxProfit)
-                {
-                    maxProfit = prices[i] - minPrice;
-                }
-            }
-            return maxProfit;
-        }
-
         //125. Valid Palindrome(有效回文)  *Submit完成
         static bool IsPalindrome(string s)
         {

@@ -147,5 +147,24 @@ namespace LeetCode.test
             int result = leetCode.ClimbStairs(n);
             Console.WriteLine($"70.Climbing Stairs 的答案是 {result}");
         }
+
+        //88. Merge Sorted Array(合併排序數組)
+        public void Merge(IMerge leetCode)
+        {
+            int[] nums1 = { 1, 2, 3, 0, 0, 0 };
+            int[] nums2 = { 2, 5, 6 };
+            int m = 3;
+            int n = 3;
+            int[] result = leetCode.Merge(nums1, m, nums2, n);
+            Console.WriteLine($"88.Merge Sorted Array 的答案是 {string.Join(", ", result)}");
+        }
+
+        //121. Best Time to Buy and Sell Stock(買賣股票的最佳時機)
+        public void MaxProfit(IMaxProfit leetCode)
+        {
+            int[] prices = { 7, 1, 5, 3, 6, 4 };
+            int result = leetCode.MaxProfit(prices);
+            Console.WriteLine($"121.Best Time to Buy and Sell Stock 的答案是 {result}");
+        }
     }
 }
