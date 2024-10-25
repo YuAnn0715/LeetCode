@@ -79,6 +79,7 @@ namespace LeetCode.test
             int result = leetCode.RemoveDuplicates(nums);
             Console.WriteLine($"26.Remove Duplicates from Sorted Array 的答案是 {result}");
         }
+
         //27. Remove Element(刪除元素)
         public void RemoveElement(IRemoveElement leetCode)
         {
@@ -87,6 +88,7 @@ namespace LeetCode.test
             int result = leetCode.RemoveElement(nums, val);
             Console.WriteLine($"27.Remove Element 的答案是 {result}");
         }
+
         //28. Find the Index of the First Occurrence in a String(尋找字串中第一次出現的索引)
         public void StrStr(IStrStr leetCode)
         {
@@ -94,6 +96,56 @@ namespace LeetCode.test
             string needle = "sad";
             int result = leetCode.StrStr(haystack, needle);
             Console.WriteLine($"28.Find the Index of the First Occurrence in a String 的答案是 {result}");
+        }
+
+        //35. Search Insert Position(搜尋插入位置)
+        public void SearchInsert(ISearchInsert leetCode)
+        {
+            int[] nums = { 1, 3, 5, 6 };
+            int target = 5;
+            int result = leetCode.SearchInsert(nums, target);
+            Console.WriteLine($"35.Search Insert Position 的答案是 {result}");
+        }
+
+        //58. Length of Last Word(最後一個字的長度)
+        public void LengthOfLastWord(ILengthOfLastWord leetCode)
+        {
+            string s = "fly me to the Moon";
+            int result = leetCode.LengthOfLastWord(s);
+            Console.WriteLine($"58.Length of Last Word 的答案是 {result}");
+        }
+
+        //66. Plus One(加一)
+        public void PlusOne(IPlusOne leetCode)
+        {
+            int[] digits = { 1, 2, 3 };
+            int[] result = leetCode.PlusOne(digits);
+            Console.WriteLine($"66.Plus One 的答案是 {string.Join(", ", result)}");
+        }
+
+        //67. Add Binary(新增二進位)
+        public void AddBinary(IAddBinary leetCode)
+        {
+            string a = "1010";
+            string b = "1011";
+            string result = leetCode.AddBinary(a, b);
+            Console.WriteLine($"67.Add Binary 的答案是 {result}");
+        }
+
+        //69. Sqrt(x)(平方x)
+        public void MySqrt(IMySqrt leetCode)
+        {
+            int x = 8;
+            int result = leetCode.MySqrt(x);
+            Console.WriteLine($"69.Sqrt(x) 的答案是 {result}");
+        }
+
+        //70. Climbing Stairs(爬樓梯)
+        public void ClimbStairs(IClimbStairs leetCode)
+        {
+            int n = 3;
+            int result = leetCode.ClimbStairs(n);
+            Console.WriteLine($"70.Climbing Stairs 的答案是 {result}");
         }
     }
 }

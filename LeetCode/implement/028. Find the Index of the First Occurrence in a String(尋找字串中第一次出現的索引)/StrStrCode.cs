@@ -8,6 +8,7 @@ namespace LeetCode
 {
     public class StrStrCode : IStrStr
     {
+        //28. Find the Index of the First Occurrence in a String(尋找字串中第一次出現的索引)
         public int StrStr(string haystack, string needle)
         {
             if (haystack.Contains(needle))

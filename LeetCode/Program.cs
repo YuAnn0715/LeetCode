@@ -22,6 +22,12 @@ namespace LeetCode
             IRemoveDuplicates removeDuplicates = new RemoveDuplicatesCode();
             IRemoveElement removeElement = new RemoveElementCode();
             IStrStr strStr = new StrStrCode();
+            ISearchInsert searchInsert = new SearchInsertCode();
+            ILengthOfLastWord lengthOfLastWord = new LengthOfLastWordCode();
+            IPlusOne plusOne = new PlusOneCode();
+            IAddBinary addBinary = new AddBinaryCode();
+            IMySqrt mySqrt = new MySqrtCode();
+            IClimbStairs climbStairs = new ClimbStairsCode();
             
             Test test = new Test();
             //========================測試區=======================
@@ -51,45 +57,24 @@ namespace LeetCode
 
             //28. Find the Index of the First Occurrence in a String(尋找字串中第一次出現的索引)  *Submit完成
             test.StrStr(strStr);
-            //string haystack = "sadbutsad";
-            //string needle = "sad";
-            //int result = StrStr(haystack, needle);
-            //Console.WriteLine(result);
 
             //35. Search Insert Position(搜尋插入位置)  *Submit完成
-            //int[] nums = { 1, 3, 5, 6 };
-            //int target = 5;
-            //int result = SearchInsert(nums, target);
-            //Console.WriteLine(result);
+            test.SearchInsert(searchInsert);
 
             //58. Length of Last Word(最後一個字的長度)  *Submit完成
-            //string s = "fly me to the Moon";
-            //int result = LengthOfLastWord(s);
-            //Console.WriteLine(result);
+            test.LengthOfLastWord(lengthOfLastWord);
 
             //66. Plus One(加一)  *Submit完成
-            //int[] digits = { 1, 2, 3 };
-            //int[] result = PlusOne(digits);
-            //foreach (var item in result)
-            //{
-            //    Console.WriteLine(item);
-            //}
+            test.PlusOne(plusOne);
 
             //67. Add Binary(新增二進位)  *Submit完成
-            //string a = "1010";
-            //string b = "1011";
-            //string result = AddBinary(a, b);
-            //Console.WriteLine(result);
+            test.AddBinary(addBinary);
 
             //69. Sqrt(x)(平方x)   *Submit完成
-            //int x = 8;
-            //int result = MySqrt(x);
-            //Console.WriteLine(result);
+            test.MySqrt(mySqrt);
 
             //70. Climbing Stairs(爬樓梯)  *Submit完成
-            //int n = 3;
-            //int result = ClimbStairs(n);
-            //Console.WriteLine(result);
+            test.ClimbStairs(climbStairs);
 
             //88. Merge Sorted Array(合併排序數組)  *Submit完成
             //int[] nums1 = { 1, 2, 3, 0, 0, 0 };
@@ -348,211 +333,6 @@ namespace LeetCode
         }
 
         //=====================解題區=======================
-
-
-        //28. Find the Index of the First Occurrence in a String(尋找字串中第一次出現的索引)  *Submit完成
-        static int StrStr(string haystack, string needle)
-        {
-            if (haystack.Contains(needle))
-            {
-                List<string> haystackList = haystack.Select(c => c.ToString()).ToList();
-                List<string> needleList = needle.Select(c => c.ToString()).ToList();
-                if (haystackList.Count == 1 && needleList.Count == 1)
-                {
-                    return (0);
-                }
-                for (int i = 0; i < needleList.Count; i++)
-                {
-                    for (int j = 0; j < haystackList.Count; j++)
-                    {
-                        if (needleList[i] == haystackList[j])
-                        {
-                            if (haystack.Substring(j, needleList.Count) == needle)
-                            {
-                                return (j);
-                            }
-                            else
-                            {
-                                continue;
-                            }
-                        }
-                        else
-                        {
-                            continue;
-                        }
-                    }
-                }
-                return (-1);
-            }
-            else
-            {
-                return (-1);
-            }
-        }
-
-        //35. Search Insert Position(搜尋插入位置)  *Submit完成
-        static int SearchInsert(int[] nums, int target)
-        {
-            List<int> numsList = new List<int>(nums.ToList());
-            if (numsList.Contains(target))
-            {
-                return (numsList.IndexOf(target));
-            }
-            else
-            {
-                numsList.Add(target);
-                numsList.Sort();
-                return (numsList.IndexOf(target));
-            }
-        }
-
-        //58. Length of Last Word(最後一個字的長度)  *Submit完成
-        static int LengthOfLastWord(string s)
-        {
-            List<string> sSplit = s.Split(" ").ToList();
-            for (int i = 0; i < sSplit.Count; i++)
-            {
-                if (sSplit[i] == "")
-                {
-                    sSplit.RemoveAt(i);
-                    i--;
-                }
-                else
-                {
-                    continue;
-                }
-            }
-            string lastWord = sSplit[sSplit.Count - 1];
-            int lastWordLength = lastWord.Length;
-            return (lastWordLength);
-        }
-
-        //66. Plus One(加一)  *Submit完成
-        static int[] PlusOne(int[] digits)
-        {
-            if (digits[digits.Length - 1] != 9)
-            {
-                digits[digits.Length - 1] = digits[digits.Length - 1] + 1;
-                return digits;
-            }
-            else
-            {
-                int nineCount = 0;
-                int nineEnd = 0;
-                for (int i = digits.Length - 1; i >= 0; i--)
-                {
-                    if (digits[i] == 9)
-                    {
-                        nineCount++;
-                    }
-                    else
-                    {
-                        nineEnd = i;
-                        break;
-                    }
-                }
-                if (nineEnd == 0 && digits[0] == 9)
-                {
-                    List<int> digitsList = new List<int>();
-                    digitsList.Add(1);
-                    for (int i = 1; i < nineCount + 1; i++)
-                    {
-                        digitsList.Add(0);
-                    }
-                    return digitsList.ToArray();
-                }
-                else
-                {
-                    digits[nineEnd] = digits[nineEnd] + 1;
-                    for (int i = 0; i < nineCount; i++)
-                    {
-                        digits[digits.Length - 1 - i] = 0;
-                    }
-                    return digits;
-                }
-            }
-        }
-
-        //67. Add Binary(新增二進位)  *Submit完成
-        static string AddBinary(string a, string b)
-        {
-            int carry = 0;
-            int i = a.Length - 1;
-            int j = b.Length - 1;
-            StringBuilder result = new StringBuilder();
-
-            while (carry > 0 || i >= 0 || j >= 0)
-            {
-                int sum = carry;
-                if (i >= 0)
-                {
-                    sum += Convert.ToInt32(a[i].ToString());
-                    i--;
-                }
-                if (j >= 0)
-                {
-                    sum += Convert.ToInt32(b[j].ToString());
-                    j--;
-                }
-                carry = sum / 2;
-                int digit = sum % 2;
-                result.Insert(0, digit);
-            }
-            return result.ToString();
-        }
-
-        //69. Sqrt(x)(平方x)   *Submit完成
-        static int MySqrt(int x)
-        {
-            if (x <= 1)
-            {
-                return x;
-            }
-            int start = 1;
-            int end = x;
-            int res = 0;
-            while (start <= end)
-            {
-                int mid = start + (end - start) / 2;
-                if (mid <= x / mid)
-                {
-                    start = mid + 1;
-                    res = mid;
-                }
-                else
-                {
-                    end = mid - 1;
-                }
-            }
-            return res;
-        }
-
-        //70. Climbing Stairs(爬樓梯)  *Submit完成
-        static int ClimbStairs(int n)
-        {
-            if (n <= 1)
-                return 1;
-
-            int prev1 = 1;
-            int prev2 = 1;
-            int current = 0;
-
-            for (int i = 2; i <= n; i++)
-            {
-                current = prev1 + prev2;
-                prev1 = prev2;
-                prev2 = current;
-            }
-
-            return current;
-        }
-
-        //83
-        //static ListNode DeleteDuplicates(ListNode head)
-        //{
-
-        //}
-
         //88. Merge Sorted Array(合併排序數組)  *Submit完成
         static int[] Merge(int[] nums1, int m, int[] nums2, int n)
         {
