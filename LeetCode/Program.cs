@@ -18,7 +18,11 @@ namespace LeetCode
             IRomanToInt romanToInt = new RomanToIntCode();
             ILongestCommonPrefix longestCommonPrefix = new LongestCommonPrefixCode();
             IIsValid isValid = new IsValidCode();
-
+            IMergeTwoLists mergeTwoLists = new MergeTwoListsCode();
+            IRemoveDuplicates removeDuplicates = new RemoveDuplicatesCode();
+            IRemoveElement removeElement = new RemoveElementCode();
+            IStrStr strStr = new StrStrCode();
+            
             Test test = new Test();
             //========================測試區=======================
             //1. Two Sum(兩數和)  *Submit完成
@@ -36,28 +40,17 @@ namespace LeetCode
             //20. Valid Parentheses(有效括號)  *Submit完成
             test.IsValid(isValid);
 
-
             //21. Merge Two Sorted Lists(合併兩個表)  *Submit完成
-            //ListNode list1 = new ListNode(1, 2, 4);
-            //ListNode list2 = new ListNode(1, 3, 4);
-            //ListNode result = MergeTwoLists(list1, list2);
-            //foreach (ListNode node in result)
-            //{
-            //    Console.WriteLine(node);
-            //}
+            test.MergeTwoLists(mergeTwoLists);
 
             //26.Remove Duplicates from Sorted Array(從排序數組中刪除重複項)  *Submit完成
-            //int[] nums = { 0, 0, 1, 1, 1, 2, 2, 3, 3, 4 };
-            //int result = RemoveDuplicates(nums);
-            //Console.WriteLine(result);
+            test.RemoveDuplicates(removeDuplicates);
 
             //27.Remove Element(刪除元素)  *Submit完成
-            //int[] nums = { 0, 1, 2, 2, 3, 0, 4, 2 };
-            //int val = 2;
-            //int result = RemoveElement(nums,val);
-            //Console.WriteLine(result);
+            test.RemoveElement(removeElement);
 
             //28. Find the Index of the First Occurrence in a String(尋找字串中第一次出現的索引)  *Submit完成
+            test.StrStr(strStr);
             //string haystack = "sadbutsad";
             //string needle = "sad";
             //int result = StrStr(haystack, needle);
@@ -356,79 +349,6 @@ namespace LeetCode
 
         //=====================解題區=======================
 
-
-        //21. Merge Two Sorted Lists(合併兩個表)  *Submit完成
-        static ListNode? MergeTwoLists(ListNode list1, ListNode list2)
-        {
-            if (list1 == null)
-            {
-                return list2;
-            }
-            if (list2 == null)
-            {
-                return list1;
-            }
-            if (list1 == null && list2 == null)
-            {
-                return null;
-            }
-            ListNode result = new ListNode(0);
-            ListNode current = result;
-
-            while (list1 != null && list2 != null)
-            {
-                if (list1.val < list2.val)
-                {
-                    current.next = list1;
-                    list1 = list1.next;
-                }
-                else
-                {
-                    current.next = list2;
-                    list2 = list2.next;
-                }
-                current = current.next;
-            }
-            current.next = list1 ?? list2;
-            return result.next;
-        }
-
-        //26. Remove Duplicates from Sorted Array(從排序數組中刪除重複項)  *Submit完成
-        static int RemoveDuplicates(int[] nums)
-        {
-            if (nums.Length == 0)
-            {
-                return 0;
-            }
-            else
-            {
-                int count = 1;
-                for (int i = 0; i < nums.Length; i++)
-                {
-                    if (nums[i] != nums[count - 1])
-                    {
-                        nums[count] = nums[i];
-                        count++;
-                    }
-                }
-                return count;
-            }
-        }
-
-        //27. Remove Element(刪除元素)  *Submit完成
-        static int RemoveElement(int[] nums, int val)
-        {
-            int count = 0;
-            for (int i = 0; i < nums.Length; i++)
-            {
-                if (nums[i] != val)
-                {
-                    nums[count] = nums[i];
-                    count++;
-                }
-            }
-            return count;
-        }
 
         //28. Find the Index of the First Occurrence in a String(尋找字串中第一次出現的索引)  *Submit完成
         static int StrStr(string haystack, string needle)
