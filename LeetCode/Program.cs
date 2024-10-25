@@ -2,43 +2,40 @@
 using System.Linq;
 using System.Text;
 using LeetCode;
+using LeetCode.Service;
+using LeetCode.test;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace LeetCode
 {
-    //========================測試區=======================
     class Solution
     {
         static void Main(string[] args)
         {
+            // interface
+            ITwoSum twoSum = new TwoSumCode();
+            IIsPalindrome isPalindrome = new IsPalindromeCode();
+            IRomanToInt romanToInt = new RomanToIntCode();
+            ILongestCommonPrefix longestCommonPrefix = new LongestCommonPrefixCode();
+            IIsValid isValid = new IsValidCode();
+
+            Test test = new Test();
+            //========================測試區=======================
             //1. Two Sum(兩數和)  *Submit完成
-            //int[] nums = { 2, 7, 11, 15 };
-            //int target = 9;
-            //int[] result = TwoSum(nums, target);
-            //foreach (int item in result)
-            //{
-            //    Console.WriteLine(item);
-            //}
+            test.twoSum(twoSum);
 
             //9. Palindrome Number(回文數)  *Submit完成
-            //int x = 121;
-            //bool result = IsPalindrome(x);
-            //Console.WriteLine(result);
+            test.isPalindrome(isPalindrome);
 
             //13. Roman to Integer(羅馬數字轉整數)  *Submit完成
-            //string s = "MCMXCIV";
-            //int result = RomanToInt(s);
-            //Console.WriteLine(result);
+            test.RomanToInt(romanToInt);
 
-            //14. Longest Common Prefix(最長公共前綴)  *Submit完成
-            //string[] strs = { "flower", "flow", "flight" };
-            //string result = LongestCommonPrefix(strs);
-            //Console.WriteLine(result);
+            //14. Longest Common Prefix(最長共用前綴)  *Submit完成
+            test.LongestCommonPrefix(longestCommonPrefix);
 
             //20. Valid Parentheses(有效括號)  *Submit完成
-            //string s = "()[]{}";
-            //bool result = IsValid(s);
-            //Console.WriteLine(result);
+            test.IsValid(isValid);
+
 
             //21. Merge Two Sorted Lists(合併兩個表)  *Submit完成
             //ListNode list1 = new ListNode(1, 2, 4);
@@ -264,9 +261,9 @@ namespace LeetCode
             //Console.WriteLine(result);
 
             //412. Fizz Buzz(蜂鳴聲)  *Submit完成
-            int n = 15;
-            IList<string> result = FizzBuzz(n);
-            Console.WriteLine(result);
+            //int n = 15;
+            //IList<string> result = FizzBuzz(n);
+            //Console.WriteLine(result);
 
             //448. Find All Numbers Disappeared in an Array(找出數組所有消失的數字)
             //int[] nums = { 4, 3, 2, 7, 8, 2, 3, 1 };
@@ -359,195 +356,6 @@ namespace LeetCode
 
         //=====================解題區=======================
 
-        //1. Two Sum(兩數和)  *Submit完成
-        static int[] TwoSum(int[] nums, int target)
-        {
-            int aryCount = nums.Length;
-            List<int> answer = new List<int>();
-            int n = 0;
-            for (int i = 0; i < aryCount; i++)
-            {
-                n++;
-                for (int j = n; j < aryCount; j++)
-                {
-                    int targetNumber = nums[i] + nums[j];
-                    if (targetNumber == target)
-                    {
-                        answer.Add(i);
-                        answer.Add(j);
-                        break;
-                    }
-                }
-                n = i + 1;
-            }
-            return (answer.ToArray());
-        }
-
-        //9. Palindrome Number(回文數)  *Submit完成
-        static bool IsPalindrome(int x)
-        {
-            //如果X大於等於0
-            if (x >= 0)
-            {
-                //x轉型string
-                string strX = x.ToString();
-                //strX反轉建構 string需要字符數組(.ToArray())
-                string reStr = new string(strX.Reverse().ToArray());
-                if (strX == reStr)
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                return false;
-            }
-        }
-
-        //13. Roman to Integer(羅馬數字轉整數)  *Submit完成
-        static int RomanToInt(string s)
-        {
-            Dictionary<string, int> romanNumber = new Dictionary<string, int>();
-            romanNumber.Add("I", 1);
-            romanNumber.Add("V", 5);
-            romanNumber.Add("X", 10);
-            romanNumber.Add("L", 50);
-            romanNumber.Add("C", 100);
-            romanNumber.Add("D", 500);
-            romanNumber.Add("M", 1000);
-            int romanTotal = 0;
-            List<string> strSList = s.Select(c => c.ToString()).ToList();
-            if (strSList.Count > 1)
-            {
-                for (int i = 0; i < strSList.Count - 1; i++)
-                {
-                    if (strSList[i] == "I" && strSList[i + 1] == "V")
-                    {
-                        romanTotal += 4;
-                        strSList.RemoveAt(i);
-                        strSList.RemoveAt(i);
-                        i--;
-                    }
-                    else if (strSList[i] == "I" && strSList[i + 1] == "X")
-                    {
-                        romanTotal += 9;
-                        strSList.RemoveAt(i);
-                        strSList.RemoveAt(i);
-                        i--;
-                    }
-                    else if (strSList[i] == "X" && strSList[i + 1] == "L")
-                    {
-                        romanTotal += 40;
-                        strSList.RemoveAt(i);
-                        strSList.RemoveAt(i);
-                        i--;
-                    }
-                    else if (strSList[i] == "X" && strSList[i + 1] == "C")
-                    {
-                        romanTotal += 90;
-                        strSList.RemoveAt(i);
-                        strSList.RemoveAt(i);
-                        i--;
-                    }
-                    else if (strSList[i] == "C" && strSList[i + 1] == "D")
-                    {
-                        romanTotal += 400;
-                        strSList.RemoveAt(i);
-                        strSList.RemoveAt(i);
-                        i--;
-                    }
-                    else if (strSList[i] == "C" && strSList[i + 1] == "M")
-                    {
-                        romanTotal += 900;
-                        strSList.RemoveAt(i);
-                        strSList.RemoveAt(i);
-                        i--;
-                    }
-                }
-            }
-            foreach (string item in strSList)
-            {
-                if (romanNumber.ContainsKey(item))
-                {
-                    int romanNumberValue = romanNumber[item];
-                    romanTotal += romanNumberValue;
-                }
-            }
-            return (romanTotal);
-        }
-
-        //14. Longest Common Prefix(最長公共前綴)  *Submit完成
-        static string LongestCommonPrefix(string[] strs)
-        {
-            string start = strs[0];
-            for (int i = 0; i < strs.Length; i++)
-            {
-                while (!strs[i].StartsWith(start))
-                {
-                    start = start.Substring(0, start.Length - 1);
-                }
-            }
-            if (start.Length != 0)
-            {
-                return start;
-            }
-            else
-            {
-                return "";
-            }
-        }
-
-        //20. Valid Parentheses(有效括號)  *Submit完成
-        static bool IsValid(string s)
-        {
-            List<string> input = s.Select(c => c.ToString()).ToList();
-            if (input.Count > 1)
-            {
-                for (int i = 0; i < input.Count - 1; i++)
-                {
-                    if (input[i] == "(")
-                    {
-                        if (input[i + 1] == ")")
-                        {
-                            input.RemoveAt(i);
-                            input.RemoveAt(i);
-                            i = -1;
-                        }
-                    }
-                    else if (input[i] == "[")
-                    {
-                        if (input[i + 1] == "]")
-                        {
-                            input.RemoveAt(i);
-                            input.RemoveAt(i);
-                            i = -1;
-                        }
-                    }
-                    else if (input[i] == "{")
-                    {
-                        if (input[i + 1] == "}")
-                        {
-                            input.RemoveAt(i);
-                            input.RemoveAt(i);
-                            i = -1;
-                        }
-                    }
-                }
-                if (input.Count == 0)
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-            }
-            return false;
-        }
 
         //21. Merge Two Sorted Lists(合併兩個表)  *Submit完成
         static ListNode? MergeTwoLists(ListNode list1, ListNode list2)
@@ -1193,6 +1001,22 @@ namespace LeetCode
             }
         }
 
+        //263.
+        //public bool IsUgly(int n)
+        //{
+        //    if (n == 1 || n == 2 || n == 3 || n == 5)
+        //    {
+        //        return true;
+        //    }
+        //    else
+        //    {
+        //        if (n % 2 == 0 || n % 3 == 0 )
+        //        {
+
+        //        }
+        //    }
+        //}
+
         //268. Missing Number(缺號碼)   *Submit完成
         static int MissingNumber(int[] nums)
         {
@@ -1211,7 +1035,6 @@ namespace LeetCode
             }
             return missNumber;
         }
-
 
 
         //326. Power of Three(三的幕)  *Submit完成
@@ -1849,7 +1672,7 @@ namespace LeetCode
             }
         }
 
-        //551 Student Attendance Record I(學生出勤記錄 I)   *Submit完成
+        //551. Student Attendance Record I(學生出勤記錄 I)   *Submit完成
         static bool CheckRecord(string s)
         {
             int sumA = 0;
