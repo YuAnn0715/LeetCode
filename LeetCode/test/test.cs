@@ -239,5 +239,131 @@ namespace LeetCode.test
             bool result = leetCode.IsIsomorphic(s, t);
             Console.WriteLine($"205.Isomorphic Strings 的答案是 {result}");
         }
+
+        //217. Contains Duplicate(包含重複項)
+        public void ContainsDuplicate(IContainsDuplicate leetCode)
+        {
+            int[] nums = { 1, 1, 1, 3, 3, 4, 3, 2, 4, 2 };
+            bool result = leetCode.ContainsDuplicate(nums);
+            Console.WriteLine($"217.Contains Duplicate 的答案是 {result}");
+        }
+
+        //219. Contains Duplicate II(包含重複項 二)
+        public void ContainsNearbyDuplicate(IContainsNearbyDuplicate leetCode)
+        {
+            int[] nums = { 1, 2, 3, 1 };
+            int k = 3;
+            bool result = leetCode.ContainsNearbyDuplicate(nums, k);
+            Console.WriteLine($"219.Contains Duplicate 的答案是 {result}");
+        }
+
+        //231. Power of Two(二的幕)
+        public void IsPowerOfTwo(IIsPowerOfTwo leetCode)
+        {
+            int n = 16;
+            bool result = leetCode.IsPowerOfTwo(n);
+            Console.WriteLine($"231.Power of Two 的答案是 {result}");
+        }
+
+        //242. Valid Anagram(有效的字謎詞)
+        public void IsAnagram(IIsAnagram leetCode)
+        {
+            string s = "anagram";
+            string t = "nagaram";
+            bool result = leetCode.IsAnagram(s, t);
+            Console.WriteLine($"242.Valid Anagram 的答案是 {result}");
+        }
+
+        //258. Add Digits(添加數字)
+        public void AddDigits(IAddDigits leetCode)
+        {
+            int num = 38;
+            int result = leetCode.AddDigits(num);
+            Console.WriteLine($"258.Add Digits 的答案是 {result}");
+        }
+
+        //268. Missing Number(缺號碼)
+        public void MissingNumber(IMissingNumber leetCode)
+        {
+            int[] nums = { 9, 6, 4, 2, 3, 5, 7, 0, 1 };
+            int result = leetCode.MissingNumber(nums);
+            Console.WriteLine($"268.Missing Number 的答案是 {result}");
+        }
+
+        //326. Power of Three(三的幕)
+        public void IsPowerOfThree(IIsPowerOfThree leetCode)
+        {
+            int n = 27;
+            bool result = leetCode.IsPowerOfThree(n);
+            Console.WriteLine($"326.Power of Three 的答案是 {result}");
+        }
+
+        //338. Counting Bits(計數位)
+        public void CountBits(ICountBits leetCode)
+        {
+            int n = 5;
+            int[] result = leetCode.CountBits(n);
+            Console.WriteLine($"338.Counting Bits 的答案是 {string.Join(", ", result)}");
+        }
+
+        //342. Power of Four(四的幕)
+        public void IsPowerOfFour(IIsPowerOfFour leetCode)
+        {
+            int n = 16;
+            bool result = leetCode.IsPowerOfFour(n);
+            Console.WriteLine($"342.Power of Four 的答案是 {result}");
+        }
+
+        //344. Reverse String(反轉字串)
+        public void ReverseString(IReverseString leetCode)
+        {
+            char[] s = { 'h', 'e', 'l', 'l', 'o' };
+            char[] result = leetCode.ReverseString(s);
+            Console.WriteLine($"344.Reverse String 的答案是 {string.Join(", ", result)}");
+        }
+
+        //345. Reverse Vowels of a String(字串母音反轉)
+        public void ReverseVowels(IReverseVowels leetCode)
+        {
+            string s = "leetcode";
+            string result = leetCode.ReverseVowels(s);
+            Console.WriteLine($"345.Reverse Vowels of a String 的答案是 {result}");
+        }
+
+        //349. Intersection of Two Arrays(兩個數組的交集)
+        public void Intersection(IIntersection leetCode)
+        {
+            int[] nums1 = { 4, 9, 5 };
+            int[] nums2 = { 9, 4, 9, 8, 4 };
+            int[] result = leetCode.Intersection(nums1, nums2);
+            Console.WriteLine($"349.Intersection of Two Arrays 的答案是 {string.Join(", ", result)}");
+        }
+
+        //350. Intersection of Two Arrays II(兩個數組的交集 II)
+        public void Intersect(IIntersect leetCode)
+        {
+            int[] nums1 = { 4, 9, 5 };
+            int[] nums2 = { 9, 4, 9, 8, 4 };
+            int[] result = leetCode.Intersect(nums1, nums2);
+            Console.WriteLine($"350.Intersection of Two Arrays II 的答案是 {string.Join(", ", result)}");
+        }
+
+        //383. Ransom Note(勒索信)
+        public void CanConstruct(ICanConstruct leetCode)
+        {
+            string ransomNote = "aa";
+            string magazine = "ab";
+            bool result = leetCode.CanConstruct(ransomNote, magazine);
+            Console.WriteLine($"383.Ransom Note 的答案是 {result}");
+        }
+
+        //389. Find the Difference(找出差異)
+        public void FindTheDifference(IFindTheDifference leetCode)
+        {
+            string s = "abcd";
+            string t = "abcde";
+            char result = leetCode.FindTheDifference(s, t);
+            Console.WriteLine($"389.Find the Difference 的答案是 {result}");
+        }
     }
 }

@@ -39,7 +39,22 @@ namespace LeetCode
             IHammingWeight hammingWeight = new HammingWeightCode();
             IIsHappy isHappy = new IsHappyCode();
             IIsIsomorphic isIsomorphic = new IsIsomorphicCode();
-            
+            IContainsDuplicate containsDuplicate = new ContainsDuplicateCode();
+            IContainsNearbyDuplicate containsNearbyDuplicate = new ContainsNearbyDuplicateCode();
+            IIsPowerOfTwo isPowerOfTwo = new IsPowerOfTwoCode();
+            IIsAnagram isAnagram = new IsAnagramCode();
+            IAddDigits addDigits = new AddDigitsCode();
+            IMissingNumber missingNumber = new MissingNumberCode();
+            IIsPowerOfThree isPowerOfThree = new IsPowerOfThreeCode();
+            ICountBits countBits = new CountBitsCode();
+            IIsPowerOfFour isPowerOfFour = new IsPowerOfFourCode();
+            IReverseString reverseString = new ReverseStringCode();
+            IReverseVowels reverseVowels = new ReverseVowelsCode();
+            IIntersection intersection = new IntersectionCode();
+            IIntersect intersect = new IntersectCode();
+            ICanConstruct canConstruct = new CanConstructCode();
+            IFindTheDifference findTheDifference = new FindTheDifferenceCode();
+
             Test test = new Test();
             //========================測試區=======================
             //1. Two Sum(兩數和)  *Submit完成
@@ -121,98 +136,49 @@ namespace LeetCode
             test.IsIsomorphic(isIsomorphic);
 
             //217. Contains Duplicate(包含重複項)  *Submit完成
-            //int[] nums = { 1, 1, 1, 3, 3, 4, 3, 2, 4, 2 };
-            //bool result = ContainsDuplicate(nums);
-            //Console.WriteLine(result);
+            test.ContainsDuplicate(containsDuplicate);
 
             //219. Contains Duplicate II(包含重複項 二)  *Submit完成
-            //int[] nums = { 1, 2, 3, 1 };
-            //int k = 3;
-            //bool result = ContainsNearbyDuplicate(nums, k);
-            //Console.WriteLine(result);
-
+            test.ContainsNearbyDuplicate(containsNearbyDuplicate);
 
             //231. Power of Two(二的幕)   *Submit完成
-            //int n = 16;
-            //bool result = IsPowerOfTwo(n);
-            //Console.WriteLine(result);
+            test.IsPowerOfTwo(isPowerOfTwo);
 
             //242. Valid Anagram(有效的字謎詞)   *Submit完成
-            //string s = "anagram";
-            //string t = "nagaram";
-            //bool result = IsAnagram(s, t);
-            //Console.WriteLine(result);
+            test.IsAnagram(isAnagram);
 
             //258. Add Digits(添加數字)   *Submit完成
-            //int num = 38;
-            //int result = AddDigits(num);
-            //Console.WriteLine(result);
+            test.AddDigits(addDigits);
 
             //268. Missing Number(缺號碼)   *Submit完成
-            //int[] nums = { 9, 6, 4, 2, 3, 5, 7, 0, 1 };
-            //int result = MissingNumber(nums);
-            //Console.WriteLine(result);
+            test.MissingNumber(missingNumber);
 
             //326. Power of Three(三的幕)  *Submit完成
-            //int n = 27;
-            //bool result = IsPowerOfThree(n);
-            //Console.WriteLine(result);
+            test.IsPowerOfThree(isPowerOfThree);
 
             //338. Counting Bits(計數位)  *Submit完成
-            //int n = 5;
-            //int[] result = CountBits(n);
-            //foreach (var item in result)
-            //{
-            //    Console.WriteLine(item);
-            //}
+            test.CountBits(countBits);
 
             //342. Power of Four(四的幕)  *Submit完成
-            //int n = 16;
-            //bool result= IsPowerOfFour(n);
-            //Console.WriteLine(result);
+            test.IsPowerOfFour(isPowerOfFour);
 
             //344. Reverse String(反轉字串)  *Submit完成
-            //char[] s = { 'h', 'e','l','l','o' };
-            //char[] result = ReverseString(s);
-            //foreach (var item in result)
-            //{
-            //    Console.WriteLine(item);
-            //}
+            test.ReverseString(reverseString);
 
             //345. Reverse Vowels of a String(字串母音反轉)  *Submit完成
-            //string s = "leetcode";
-            //string result = ReverseVowels(s);
-            //Console.WriteLine(result);
+            test.ReverseVowels(reverseVowels);
 
             //349. Intersection of Two Arrays(兩個數組的交集)  *Submit完成
-            //int[] nums1 = { 4, 9, 5 };
-            //int[] nums2 = { 9, 4, 9, 8, 4 };
-            //int[] result = Intersection(nums1, nums2);
-            //foreach (var item in result)
-            //{
-            //    Console.WriteLine(item);
-            //}
+            test.Intersection(intersection);
 
             //350. Intersection of Two Arrays II(兩個數組的交集 II)  *Submit完成
-            //int[] nums1 = { 4, 9, 5 };
-            //int[] nums2 = { 9, 4, 9, 8, 4 };
-            //int[] result = Intersect(nums1, nums2);
-            //foreach (var item in result)
-            //{
-            //    Console.WriteLine(item);
-            //}
+            test.Intersect(intersect);
 
             //383. Ransom Note(勒索信)  *Submit完成
-            //string ransomNote = "aa";
-            //string magazine = "ab";
-            //bool result = CanConstruct(ransomNote, magazine);
-            //Console.WriteLine(result);
+            test.CanConstruct(canConstruct);
 
             //389. Find the Difference(找出差異)  *Submit完成
-            //string s = "abcd";
-            //string t = "abcde";
-            //char result= FindTheDifference(s, t);
-            //Console.WriteLine(result);
+            test.FindTheDifference(findTheDifference);
 
             //392. Is Subsequence(是否子序列)  *Submit完成
             //string s = "axc";
@@ -314,154 +280,6 @@ namespace LeetCode
 
         }
         //=====================解題區=======================
-
-        //205. Isomorphic Strings(同構弦)  *Submit完成
-        static bool IsIsomorphic(string s, string t)
-        {
-
-            if (s.Length != t.Length)
-                return false;
-
-            Dictionary<char, char> dic = new Dictionary<char, char>();
-            for (int i = 0; i < s.Length; i++)
-            {
-                if (dic.ContainsKey(s[i]))
-                {
-                    if (dic[s[i]] != t[i])
-                        return false;
-                }
-                else
-                {
-                    if (dic.ContainsValue(t[i]))
-                        return false;
-                    else
-                        dic.Add(s[i], t[i]);
-                }
-            }
-            return true;
-        }
-
-        //217. Contains Duplicate(包含重複項)  *Submit完成
-        static bool ContainsDuplicate(int[] nums)
-        {
-            Dictionary<int, int> numIndices = new Dictionary<int, int>();
-
-            for (int i = 0; i < nums.Length; i++)
-            {
-                if (numIndices.ContainsKey(nums[i]))
-                {
-                    return true;
-                }
-                numIndices[nums[i]] = i;
-            }
-
-            return false;
-        }
-
-        //219. Contains Duplicate II(包含重複項 二)  *Submit完成
-        static bool ContainsNearbyDuplicate(int[] nums, int k)
-        {
-            Dictionary<int, int> numIndices = new Dictionary<int, int>();
-
-            for (int i = 0; i < nums.Length; i++)
-            {
-                if (numIndices.ContainsKey(nums[i]))
-                {
-                    if (i - numIndices[nums[i]] <= k)
-                    {
-                        return true;
-                    }
-                }
-                numIndices[nums[i]] = i;
-            }
-
-            return false;
-        }
-
-        //231. Power of Two(二的幕)   *Submit完成
-        static bool IsPowerOfTwo(int n)
-        {
-            if (n <= 0)
-            {
-                return false;
-            }
-            while (n % 2 == 0)
-            {
-                int n2 = n / 2;
-                n = n2;
-            }
-            if (n != 1)
-            {
-                return false;
-            }
-            else
-            {
-                return true;
-            }
-        }
-
-        //242. Valid Anagram(有效的字謎詞)   *Submit完成
-        static bool IsAnagram(string s, string t)
-        {
-            string lowWord = "abcdefghijklmnopqrstuvwxyz";
-            List<int> list1 = new List<int>();
-            List<int> list2 = new List<int>();
-            for (int i = 0; i < s.Length; i++)
-            {
-                int index = lowWord.IndexOf(s[i]);
-                list1.Add(index);
-            }
-            for (int i = 0; i < t.Length; i++)
-            {
-                int index = lowWord.IndexOf(t[i]);
-                list2.Add(index);
-            }
-            list1.Sort();
-            list2.Sort();
-            string sort1 = string.Join("", list1);
-            string sort2 = string.Join("", list2);
-            if (sort1 == sort2)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-
-        //258. Add Digits(添加數字)   *Submit完成
-        static int AddDigits(int num)
-        {
-            if (num < 10)
-            {
-                return num;
-            }
-            else
-            {
-                do
-                {
-                    int total = 0;
-                    string s = num.ToString();
-                    List<string> sList = s.Select(c => c.ToString()).ToList();
-                    List<int> numberList = new List<int>();
-                    foreach (string item in sList)
-                    {
-                        int number = Convert.ToInt32(item);
-                        numberList.Add(number);
-                    }
-
-                    for (int i = 0; i < numberList.Count; i++)
-                    {
-                        total += numberList[i];
-                    }
-                    num = total;
-                }
-                while (num > 9);
-                return num;
-            }
-        }
-
         //263.
         //public bool IsUgly(int n)
         //{
@@ -477,257 +295,6 @@ namespace LeetCode
         //        }
         //    }
         //}
-
-        //268. Missing Number(缺號碼)   *Submit完成
-        static int MissingNumber(int[] nums)
-        {
-            int missNumber = 0;
-            for (int i = 0; i < nums.Length + 1; i++)
-            {
-                if (nums.Contains(i))
-                {
-                    continue;
-                }
-                else
-                {
-                    missNumber = i;
-                    break;
-                }
-            }
-            return missNumber;
-        }
-
-
-        //326. Power of Three(三的幕)  *Submit完成
-        static bool IsPowerOfThree(int n)
-        {
-            if (n <= 0)
-            {
-                return false;
-            }
-            while (n % 3 == 0)
-            {
-                int n3 = n / 3;
-                n = n3;
-            }
-            if (n != 1)
-            {
-                return false;
-            }
-            else
-            {
-                return true;
-            }
-        }
-
-        //338. Counting Bits(計數位)  *Submit完成
-        static int[] CountBits(int n)
-        {
-            List<int> one = new List<int>();
-            for (int i = 0; i < n + 1; i++)
-            {
-                string binary = Convert.ToString(i, 2);
-                int countOne = 0;
-                for (int j = 0; j < binary.Length; j++)
-                {
-                    if (binary[j] == '1')
-                    {
-                        countOne++;
-                    }
-                }
-                one.Add(countOne);
-            }
-            return one.ToArray();
-        }
-
-        //342. Power of Four(四的幕)  *Submit完成
-        static bool IsPowerOfFour(int n)
-        {
-            if (n <= 0)
-            {
-                return false;
-            }
-            else
-            {
-                while (n % 4 == 0)
-                {
-                    int n4 = n / 4;
-                    n = n4;
-                }
-                if (n != 1)
-                {
-                    return false;
-                }
-                else
-                {
-                    return true;
-                }
-            }
-        }
-
-        //344. Reverse String(反轉字串)  *Submit完成
-        static char[] ReverseString(char[] s)
-        {
-            int left = 0;
-            int right = s.Length - 1;
-            while (left < right)
-            {
-                char change = s[left];
-                s[left] = s[right];
-                s[right] = change;
-                left++;
-                right--;
-            }
-            return s;
-        }
-
-        //345. Reverse Vowels of a String(字串母音反轉)  *Submit完成
-        static string ReverseVowels(string s)
-        {
-            List<char> vowels = new List<char>() { 'a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U' };
-            List<int> index = new List<int>();
-
-            List<string> charArray = s.Select(w => w.ToString()).ToList();
-            for (int i = 0; i < s.Length; i++)
-            {
-                if (vowels.Contains(s[i]))
-                {
-                    index.Add(i);
-                }
-            }
-            int left = 0;
-            int right = index.Count - 1;
-            while (left < right)
-            {
-                string change = charArray[index[left]];
-                charArray[index[left]] = charArray[index[right]];
-                charArray[index[right]] = change;
-                left++;
-                right--;
-            }
-            string answer = string.Join("", charArray);
-            return answer;
-        }
-
-        //349. Intersection of Two Arrays(兩個數組的交集)  *Submit完成
-        static int[] Intersection(int[] nums1, int[] nums2)
-        {
-            List<int> output = new List<int>();
-            if (nums1.Length > nums2.Length)
-            {
-                for (int i = 0; i < nums2.Length; i++)
-                {
-                    if (nums1.Contains(nums2[i]))
-                    {
-                        output.Add(nums2[i]);
-                    }
-                }
-            }
-            else
-            {
-                for (int i = 0; i < nums1.Length; i++)
-                {
-                    if (nums2.Contains(nums1[i]))
-                    {
-                        output.Add(nums1[i]);
-                    }
-                }
-            }
-            List<int> outputDistinct = output.Distinct().ToList();
-            return outputDistinct.ToArray();
-        }
-
-        //350. Intersection of Two Arrays II(兩個數組的交集 II)  *Submit完成
-        static int[] Intersect(int[] nums1, int[] nums2)
-        {
-            List<int> num1List = nums1.ToList();
-            List<int> num2List = nums2.ToList();
-            List<int> output = new List<int>();
-            //少的去檢查多的
-            if (num1List.Count > num2List.Count)
-            {
-                for (int i = 0; i < num2List.Count; i++)
-                {
-                    for (int j = 0; j < num1List.Count; j++)
-                    {
-                        if (num2List[i] == num1List[j])
-                        {
-                            output.Add(num2List[i]);
-                            num1List.RemoveAt(j);
-                            break;
-                        }
-                    }
-                }
-            }
-            else
-            {
-                for (int i = 0; i < num1List.Count; i++)
-                {
-                    for (int j = 0; j < num2List.Count; j++)
-                    {
-                        if (num1List[i] == num2List[j])
-                        {
-                            output.Add(num1List[i]);
-                            num2List.RemoveAt(j);
-                            break;
-                        }
-                    }
-                }
-            }
-            return output.ToArray();
-        }
-
-        //383. Ransom Note(勒索信)  *Submit完成
-        static bool CanConstruct(string ransomNote, string magazine)
-        {
-            for (int i = 0; i < ransomNote.Length; i++)
-            {
-                for (int j = 0; j < magazine.Length; j++)
-                {
-                    if (ransomNote[i] == magazine[j])
-                    {
-                        ransomNote = ransomNote.Remove(i, 1);
-                        magazine = magazine.Remove(j, 1);
-                        i--;
-                        break;
-                    }
-                }
-            }
-            if (ransomNote.Length != 0)
-            {
-                return false;
-            }
-            else
-            {
-                return true;
-            }
-        }
-
-        //389. Find the Difference(找出差異)  *Submit完成
-        static char FindTheDifference(string s, string t)
-        {
-            if (s == "")
-            {
-                return Convert.ToChar(t);
-            }
-            else
-            {
-                for (int i = 0; i < s.Length; i++)
-                {
-                    for (int j = 0; j < t.Length; j++)
-                    {
-                        if (s[i] == t[j])
-                        {
-                            s = s.Remove(i, 1);
-                            t = t.Remove(j, 1);
-                            i--;
-                            break;
-                        }
-                    }
-                }
-                return Convert.ToChar(t);
-            }
-        }
 
         //392. Is Subsequence(是否子序列)  *Submit完成
         static bool IsSubsequence(string s, string t)
