@@ -365,5 +365,90 @@ namespace LeetCode.test
             char result = leetCode.FindTheDifference(s, t);
             Console.WriteLine($"389.Find the Difference 的答案是 {result}");
         }
+
+        //392. Is Subsequence(是否子序列)
+        public void IsSubsequence(IIsSubsequence leetCode)
+        {
+            string s = "axc";
+            string t = "ahbgdc";
+            bool result = leetCode.IsSubsequence(s, t);
+            Console.WriteLine($"392.Is Subsequence 的答案是 {result}");
+        }
+
+        //412. Fizz Buzz(蜂鳴聲)
+        public void FizzBuzz(IFizzBuzz leetCode)
+        {
+            int n = 15;
+            IList<string> result = leetCode.FizzBuzz(n);
+            Console.WriteLine($"412.Fizz Buzz 的答案是 {string.Join(", ", result)}");
+        }
+
+        //448. Find All Numbers Disappeared in an Array(找出數組中所有消失的數字)
+        public void FindDisappearedNumbers(IFindDisappearedNumbers leetCode)
+        {
+            int[] nums = { 4, 3, 2, 7, 8, 2, 3, 1 };
+            IList<int> result = leetCode.FindDisappearedNumbers(nums);
+            Console.WriteLine($"448.Find All Numbers Disappeared in an Array 的答案是 {string.Join(", ", result)}");
+        }
+
+        //455. Assign Cookies(分配餅乾)
+        public void FindContentChildren(IFindContentChildren leetCode)
+        {
+            int[] g = { 3, 2, 1 };
+            int[] s = { 1, 1 };
+            int result = leetCode.FindContentChildren(g, s);
+            Console.WriteLine($"455.Assign Cookies 的答案是 {result}");
+        }
+
+        //461. Hamming Distance(漢明距離)
+        public void HammingDistance(IHammingDistance leetCode)
+        {
+            int x = 1;
+            int y = 4;
+            int result = leetCode.HammingDistance(x, y);
+            Console.WriteLine($"461.Hamming Distance 的答案是 {result}");
+        }
+
+        //476. Number Complement(數補碼)
+        public void FindComplement(IFindComplement leetCode)
+        {
+            int num = 5;
+            int result = leetCode.FindComplement(num);
+            Console.WriteLine($"476.Number Complement 的答案是 {result}");
+        }
+
+        //482. License Key Formatting(許可金鑰格式化)
+        public void LicenseKeyFormatting(ILicenseKeyFormatting leetCode)
+        {
+            string s = "--a-a-a-a--";
+            int k = 2;
+            string result = leetCode.LicenseKeyFormatting(s, k);
+            Console.WriteLine($"482.License Key Formatting 的答案是 {result}");
+        }
+
+        //485. Max Consecutive Ones(最大連續數)
+        public void FindMaxConsecutiveOnes(IFindMaxConsecutiveOnes leetCode)
+        {
+            int[] nums = { 1, 1, 0, 1, 1, 1 };
+            int result = leetCode.FindMaxConsecutiveOnes(nums);
+            Console.WriteLine($"485.Max Consecutive Ones 的答案是 {result}");
+        }
+
+        //492. Construct the Rectangle(構造矩形)
+        public void ConstructRectangle(IConstructRectangle leetCode)
+        {
+            int area = 37;
+            int[] result = leetCode.ConstructRectangle(area);
+            Console.WriteLine($"492.Construct the Rectangle 的答案是 {string.Join(", ", result)}");
+        }
+
+        //495. Teemo Attacking(提摩攻擊)
+        public void FindPoisonedDuration(IFindPoisonedDuration leetCode)
+        {
+            int[] timeSeries = { 1, 3, 5, 7, 9, 11, 13, 15 };
+            int duration = 3;
+            int result = leetCode.FindPoisonedDuration(timeSeries, duration);
+            Console.WriteLine($"495.Teemo Attacking 的答案是 {result}");
+        }
     }
 }

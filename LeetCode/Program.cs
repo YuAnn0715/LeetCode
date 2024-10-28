@@ -54,6 +54,16 @@ namespace LeetCode
             IIntersect intersect = new IntersectCode();
             ICanConstruct canConstruct = new CanConstructCode();
             IFindTheDifference findTheDifference = new FindTheDifferenceCode();
+            IIsSubsequence isSubsequence = new IsSubsequenceCode();
+            IFizzBuzz fizzBuzz = new FizzBuzzCode();
+            IFindDisappearedNumbers findDisappearedNumbers = new FindDisappearedNumbersCode();
+            IFindContentChildren findContentChildren = new FindContentChildrenCode();
+            IHammingDistance hammingDistance = new HammingDistanceCode();
+            IFindComplement findComplement = new FindComplementCode();
+            ILicenseKeyFormatting licenseKeyFormatting = new LicenseKeyFormattingCode();
+            IFindMaxConsecutiveOnes findMaxConsecutiveOnes = new FindMaxConsecutiveOnesCode();
+            IConstructRectangle constructRectangle = new ConstructRectangleCode();
+            IFindPoisonedDuration findPoisonedDuration = new FindPoisonedDurationCode();
 
             Test test = new Test();
             //========================測試區=======================
@@ -181,62 +191,34 @@ namespace LeetCode
             test.FindTheDifference(findTheDifference);
 
             //392. Is Subsequence(是否子序列)  *Submit完成
-            //string s = "axc";
-            //string t = "ahbgdc";
-            //bool result= IsSubsequence(s, t);
-            //Console.WriteLine(result);
+            test.IsSubsequence(isSubsequence);
 
             //412. Fizz Buzz(蜂鳴聲)  *Submit完成
-            //int n = 15;
-            //IList<string> result = FizzBuzz(n);
-            //Console.WriteLine(result);
+            test.FizzBuzz(fizzBuzz);
 
             //448. Find All Numbers Disappeared in an Array(找出數組所有消失的數字)
-            //int[] nums = { 4, 3, 2, 7, 8, 2, 3, 1 };
-            //IList<int> result = FindDisappearedNumbers(nums);
-            //Console.WriteLine(result);
+            test.FindDisappearedNumbers(findDisappearedNumbers);
 
             //455. Assign Cookies(分配餅乾)  *Submit完成
-            //int[] g = { 3, 2, 1 };
-            //int[] s = { 1, 1 };
-            //int result = FindContentChildren(g, s);
-            //Console.WriteLine(result);
+            test.FindContentChildren(findContentChildren);
 
             //461. Hamming Distance(漢明距離)  *Submit完成
-            //int x = 1;
-            //int y = 4;
-            //int result = HammingDistance(x, y);
-            //Console.WriteLine(result);
+            test.HammingDistance(hammingDistance);
 
             //476. Number Complement(數補碼)  *Submit完成
-            //int num = 5;
-            //int result = FindComplement(num);
-            //Console.WriteLine(result);
+            test.FindComplement(findComplement);
 
             //482. License Key Formatting(許可金鑰格式化)  *Submit完成
-            //string s = "--a-a-a-a--";
-            //int k = 2;
-            //string result = LicenseKeyFormatting(s, k);
-            //Console.WriteLine(result);
+            test.LicenseKeyFormatting(licenseKeyFormatting);
 
             //485. Max Consecutive Ones(最大連續數)  *Submit完成
-            //int[] nums = { 1, 1, 0, 1, 1, 1 };
-            //int result = FindMaxConsecutiveOnes(nums);
-            //Console.WriteLine(result);
+            test.FindMaxConsecutiveOnes(findMaxConsecutiveOnes);
 
             //485. Max Consecutive Ones(最大連續數)  *Submit完成
-            //int area = 37;
-            //int[] result = ConstructRectangle(area);
-            //foreach (int item in result)
-            //{
-            //    Console.WriteLine(item);
-            //}
+            test.ConstructRectangle(constructRectangle);
 
             //495. Teemo Attacking(提摩攻擊)  *Submit完成
-            //int[] timeSeries = { 1, 3, 5, 7, 9, 11, 13, 15 };
-            //int duration = 3;
-            //int result = FindPoisonedDuration(timeSeries, duration);
-            //Console.WriteLine(result);
+            test.FindPoisonedDuration(findPoisonedDuration);
 
             //500. Keyboard Row(鍵盤列)   *Submit完成
             //string[] words = { "Hello", "Alaska", "Dad", "Peace" };
@@ -295,240 +277,6 @@ namespace LeetCode
         //        }
         //    }
         //}
-
-        //392. Is Subsequence(是否子序列)  *Submit完成
-        static bool IsSubsequence(string s, string t)
-        {
-            int i = 0, j = 0;
-            while (i < s.Length && j < t.Length)
-            {
-                if (s[i] == t[j])
-                {
-                    i++;
-                }
-                j++;
-            }
-            return i == s.Length;
-        }
-
-        //412. Fizz Buzz(蜂鳴聲)  *Submit完成
-        static IList<string> FizzBuzz(int n)
-        {
-            List<string> nums = [];
-            for (int i = 1; i < n + 1; i++)
-            {
-                nums.Add(i.ToString());
-            }
-            for (int i = 0; i < nums.Count; i++)
-            {
-                int num = Convert.ToInt32(nums[i]);
-                if (num % 3 == 0 && num % 5 == 0)
-                {
-                    nums[i] = "FizzBuzz";
-                }
-                else if (num % 3 == 0)
-                {
-                    nums[i] = "Fizz";
-                }
-                else if (num % 5 == 0)
-                {
-                    nums[i] = "Buzz";
-                }
-                else
-                {
-                    continue;
-                }
-            }
-            return nums;
-        }
-
-        //448. Find All Numbers Disappeared in an Array(找出數組中所有消失的數字)   *Submit完成
-        static IList<int> FindDisappearedNumbers(int[] nums)
-        {
-            List<int> missNums = [];
-            for (int i = 1; i < nums.Length + 1; i++)
-            {
-                if (!nums.Contains(i))
-                {
-                    missNums.Add(i);
-                }
-            }
-            return missNums;
-        }
-
-        //455. Assign Cookies(分配餅乾)  *Submit完成
-        static int FindContentChildren(int[] g, int[] s)
-        {
-            Array.Sort(g);
-            Array.Sort(s);
-            int carryG = 0;
-            int carryS = 0;
-            while (carryG < g.Length && carryS < s.Length)
-            {
-                if (g[carryG] <= s[carryS])
-                {
-                    carryG++;
-                    carryS++;
-                }
-                else
-                {
-                    carryS++;
-                }
-            }
-            return carryG;
-        }
-
-        //461. Hamming Distance(漢明距離)  *Submit完成
-        static int HammingDistance(int x, int y)
-        {
-            string binaryX = Convert.ToString(x, 2);
-            string binaryY = Convert.ToString(y, 2);
-            int Hamming = 0;
-            if (binaryX.Length >= binaryY.Length)
-            {
-                while (binaryY.Length < binaryX.Length)
-                {
-                    binaryY = binaryY.Insert(0, "0");
-                }
-            }
-            else
-            {
-                while (binaryY.Length > binaryX.Length)
-                {
-                    binaryX = binaryX.Insert(0, "0");
-                }
-            }
-            for (int i = 0; i < binaryX.Length; i++)
-            {
-                if (binaryX[i] != binaryY[i])
-                {
-                    Hamming++;
-                }
-            }
-            return Hamming;
-        }
-
-        //476. Number Complement(數補碼)  *Submit完成
-        static int FindComplement(int num)
-        {
-            string binary = Convert.ToString(num, 2);
-            string complement = "";
-            for (int i = 0; i < binary.Length; i++)
-            {
-                if (binary[i] == '0')
-                {
-                    complement += "1";
-                }
-                else
-                {
-                    complement += "0";
-                }
-            }
-            return Convert.ToInt32(complement, 2);
-        }
-
-        //482. License Key Formatting(許可金鑰格式化)  *Submit完成
-        static string LicenseKeyFormatting(string s, int k)
-        {
-            s = s.ToUpper();
-            List<char> sList = s.ToList();
-            for (int i = 0; i < sList.Count; i++)
-            {
-                if (sList[i] == '-')
-                {
-                    sList.RemoveAt(i);
-                    i--;
-                }
-            }
-            int quotient = sList.Count / k;
-            int addcount = 0;
-            if (sList.Count % k == 0)
-            {
-                for (int i = 1; i < quotient; i++)
-                {
-                    sList.Insert(k * i + addcount, '-');
-                    addcount++;
-                }
-            }
-            else
-            {
-                for (int i = 1; i <= quotient; i++)
-                {
-                    sList.Insert(sList.Count - k * i - addcount, '-');
-                    addcount++;
-                }
-            }
-            return string.Join("", sList);
-        }
-
-        //485. Max Consecutive Ones(最大連續數)  *Submit完成
-        static int FindMaxConsecutiveOnes(int[] nums)
-        {
-            List<int> isOne = new List<int>();
-            for (int i = 0; i < nums.Length; i++)
-            {
-                int count = 0;
-                if (nums[i] == 1)
-                {
-                    while (nums[i] == 1)
-                    {
-                        count++;
-                        if (i < nums.Length - 1)
-                        {
-                            i++;
-                        }
-                        else
-                        {
-                            break;
-                        }
-                    }
-                }
-                isOne.Add(count);
-            }
-            return isOne.Max();
-        }
-
-        //492. Construct the Rectangle(構造矩形)  *Submit完成
-        static int[] ConstructRectangle(int area)
-        {
-            int w = (int)Math.Sqrt(area);
-            while (area % w != 0)
-            {
-                w--;
-            }
-            return [area / w, w];
-        }
-
-
-        //495. Teemo Attacking(提摩攻擊)  *Submit完成
-        static int FindPoisonedDuration(int[] timeSeries, int duration)
-        {
-            int secondCount = 0;
-            for (int i = 0; i < timeSeries.Length; i++)
-            {
-                //最後結束
-                if (i == timeSeries.Length - 1)
-                {
-                    secondCount += duration;
-                    break;
-                }
-                else
-                {
-                    if (timeSeries[i] + duration <= timeSeries[i + 1])
-                    {
-                        secondCount += duration;
-
-                    }
-                    else
-                    {
-                        //間隔
-                        secondCount += timeSeries[i + 1] - timeSeries[i];
-                    }
-                }
-            }
-            return secondCount;
-        }
-
         //500. Keyboard Row(鍵盤列)   *Submit完成
         static string[] FindWords(string[] words)
         {
