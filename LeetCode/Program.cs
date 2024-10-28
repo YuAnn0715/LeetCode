@@ -30,6 +30,15 @@ namespace LeetCode
             IClimbStairs climbStairs = new ClimbStairsCode();
             IMerge merge = new MergeCode();
             IMaxProfit maxProfit = new MaxProfitCode();
+            IIsValidPalindrome isValidPalindrome = new IsValidPalindromeCode();
+            ISingleNumber singleNumber = new SingleNumberCode();
+            IConvertToTitle convertToTitle = new ConvertToTitleCode();
+            IMajorityElement majorityElement = new MajorityElementCode();
+            ITitleToNumber titleToNumber = new TitleToNumberCode();
+            IReverseBits reverseBits = new ReverseBitsCode();
+            IHammingWeight hammingWeight = new HammingWeightCode();
+            IIsHappy isHappy = new IsHappyCode();
+            IIsIsomorphic isIsomorphic = new IsIsomorphicCode();
             
             Test test = new Test();
             //========================測試區=======================
@@ -85,50 +94,31 @@ namespace LeetCode
             test.MaxProfit(maxProfit);
 
             //125. Valid Palindrome(有效回文)  *Submit完成
-            //string s = "A man, a plan, a canal:Panama";
-            //bool result = IsPalindrome(s);
-            //Console.WriteLine(result);
+            test.IsValidPalindrome(isValidPalindrome);
 
             //136. Single Number(單號)  *Submit完成
-            //int[] nums = { 2, 2, 1 };
-            //int result = SingleNumber(nums);
-            //Console.WriteLine(result);
+            test.SingleNumber(singleNumber);
 
             //168. Excel Sheet Column Title(Excel 工作表列標題)  *Submit完成
-            //int columnNumber = 701;
-            //string result = ConvertToTitle(columnNumber);
-            //Console.WriteLine(result);
+            test.ConvertToTitle(convertToTitle);
 
             //169. Majority Element(多數元素)  *Submit完成
-            //int[] nums = { 2, 2, 1, 1, 1, 2, 2 };
-            //int result = MajorityElement(nums);
-            //Console.WriteLine(result);
+            test.MajorityElement(majorityElement);
 
             //171. Excel Sheet Column Number(Excel 工作表列號)  *Submit完成
-            //string columnTitle = "ZY";
-            //int result = TitleToNumber(columnTitle);
-            //Console.WriteLine(result);
+            test.TitleToNumber(titleToNumber);
 
             //190. Reverse Bits(反轉位)  *Submit完成
-            //uint n = 000000101001010;
-            //uint result = reverseBits(n);
-            //Console.WriteLine(result);
+            test.ReverseBits(reverseBits);
 
             //191. Number of 1 Bits(1 位數)  *Submit完成
-            //uint n = 00000000000000000000000000001011;
-            //int result = HammingWeight(n);
-            //Console.WriteLine(result);
+            test.HammingWeight(hammingWeight);
 
             //202. Happy Number(快樂數)  *Submit完成
-            //int n = 19;
-            //bool result = IsHappy(n);
-            //Console.WriteLine(result);
+            test.IsHappy(isHappy);
 
             //205. Isomorphic Strings(同構弦)  *Submit完成
-            //string s = "egg";
-            //string t = "add";
-            //bool result = IsIsomorphic(s, t);
-            //Console.WriteLine(result);
+            test.IsIsomorphic(isIsomorphic);
 
             //217. Contains Duplicate(包含重複項)  *Submit完成
             //int[] nums = { 1, 1, 1, 3, 3, 4, 3, 2, 4, 2 };
@@ -324,175 +314,6 @@ namespace LeetCode
 
         }
         //=====================解題區=======================
-        //125. Valid Palindrome(有效回文)  *Submit完成
-        static bool IsPalindrome(string s)
-        {
-            if (s == "")
-            {
-                return true;
-            }
-            List<string> str = new List<string>();
-            for (int i = 0; i < s.Length; i++)
-            {
-                char c = s[i];
-                if (char.IsLetterOrDigit(c))
-                {
-                    char lowerC = char.ToLower(c);
-                    str.Add(lowerC.ToString());
-                }
-            }
-            List<string> reStr = new List<string>(str);
-            reStr.Reverse();
-
-            string megStr = string.Join("", str);
-            string megReStr = string.Join("", reStr);
-            if (megStr == megReStr)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-
-        //136. Single Number(單號)  *Submit完成
-        static int SingleNumber(int[] nums)
-        {
-            var singleNumber = 0;
-            foreach (var num in nums)
-            {
-                singleNumber ^= num;
-            }
-            return singleNumber;
-        }
-
-        //168. Excel Sheet Column Title(Excel 工作表列標題)  *Submit完成
-        static string ConvertToTitle(int columnNumber)
-        {
-            StringBuilder result = new StringBuilder();
-            while (columnNumber > 0)
-            {
-                columnNumber--;
-                char letter = (char)('A' + (columnNumber % 26));
-                result.Insert(0, letter);
-                columnNumber /= 26;
-            }
-            return result.ToString();
-        }
-
-        //169. Majority Element(多數元素)  *Submit完成
-        static int MajorityElement(int[] nums)
-        {
-            List<int> numList = new List<int>();
-            foreach (var item in nums)
-            {
-                numList.Add(item);
-            }
-            numList.Sort();
-            int overHalfNum = numList[0];
-            if (numList.Count >= 3)
-            {
-                if (numList[numList.Count / 2] != overHalfNum)
-                {
-                    overHalfNum = numList[numList.Count / 2 + 1];
-                }
-            }
-            return overHalfNum;
-        }
-
-        //171. Excel Sheet Column Number(Excel 工作表列號)  *Submit完成
-        static int TitleToNumber(string columnTitle)
-        {
-            string word = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-            int sum = 0;
-            int count = 0;
-            for (int i = columnTitle.Length - 1; i >= 0; i--)
-            {
-                int index = word.IndexOf(columnTitle[i]) + 1;
-                sum += (int)Math.Pow(26, count) * index;
-                count++;
-            }
-            return sum;
-        }
-
-        //190. Reverse Bits(反轉位)  *Submit完成
-        static uint reverseBits(uint n)
-        {
-            string binary = Convert.ToString(n, 2);
-            List<string> strList1 = binary.Select(s => s.ToString()).ToList();
-            List<string> strList2 = new List<string>();
-            if (strList1.Count < 33)
-            {
-                for (int i = 0; i < 32 - strList1.Count; i++)
-                {
-                    strList2.Add("0");
-                }
-                foreach (string item in strList1)
-                {
-                    strList2.Add(item);
-                }
-            }
-            strList2.Reverse();
-            string newBinary = string.Join("", strList2);
-            uint total = Convert.ToUInt32(newBinary, 2);
-            return total;
-        }
-
-        //191. Number of 1 Bits(1 位數)  *Submit完成
-        static int HammingWeight(uint n)
-        {
-            string s = Convert.ToString(n, 2);
-            int total = 0;
-            for (int i = 0; i < s.Length; i++)
-            {
-                if (s[i] == '1')
-                {
-                    total++;
-                }
-            }
-            return total;
-        }
-
-        //202. Happy Number(快樂數)  *Submit完成
-        static bool IsHappy(int n)
-        {
-            if (n == 1)
-            {
-                return true;
-            }
-            else
-            {
-                List<int> happyIntList = new List<int>();
-                List<string> happyStrList = new List<string>();
-                do
-                {
-                    happyStrList.Clear();
-                    happyIntList.Clear();
-                    string happyStr = n.ToString();
-                    happyStrList = happyStr.Select(n => n.ToString()).ToList();
-                    int total = 0;
-                    foreach (string item in happyStrList)
-                    {
-                        happyIntList.Add(int.Parse(item));
-                    }
-                    for (int i = 0; i < happyIntList.Count; i++)
-                    {
-                        int pow = Convert.ToInt32(Math.Pow(happyIntList[i], 2));
-                        total += pow;
-                        n = total;
-                    }
-                } while (n > 6);
-                if (n == 1)
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-            }
-        }
 
         //205. Isomorphic Strings(同構弦)  *Submit完成
         static bool IsIsomorphic(string s, string t)

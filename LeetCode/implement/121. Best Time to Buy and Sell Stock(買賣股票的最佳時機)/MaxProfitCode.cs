@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace LeetCode
 {
-    //121. Best Time to Buy and Sell Stock(買賣股票的最佳時機)
     public class MaxProfitCode:IMaxProfit
+    //121. Best Time to Buy and Sell Stock(買賣股票的最佳時機)
     {
         public int MaxProfit(int[] prices)
         {

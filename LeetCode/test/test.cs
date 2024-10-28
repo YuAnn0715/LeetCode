@@ -166,5 +166,78 @@ namespace LeetCode.test
             int result = leetCode.MaxProfit(prices);
             Console.WriteLine($"121.Best Time to Buy and Sell Stock 的答案是 {result}");
         }
+
+        //125. Valid Palindrome(有效回文)
+        public void IsValidPalindrome(IIsValidPalindrome leetCode)
+        {
+            string s = "A man, a plan, a canal:Panama";
+            bool result = leetCode.IsValidPalindrome(s);
+            Console.WriteLine($"125.Valid Palindrome 的答案是 {result}");
+        }
+
+        //136. Single Number(單號)
+        public void SingleNumber(ISingleNumber leetCode)
+        {
+            int[] nums = { 2, 2, 1 };
+            int result = leetCode.SingleNumber(nums);
+            Console.WriteLine($"136.Single Number 的答案是 {result}");
+        }
+
+        //168. Excel Sheet Column Title(Excel 工作表列標題)
+        public void ConvertToTitle(IConvertToTitle leetCode)
+        {
+            int columnNumber = 701;
+            string result = leetCode.ConvertToTitle(columnNumber);
+            Console.WriteLine($"168.Excel Sheet Column Title 的答案是 {result}");
+        }
+
+        //169. Majority Element(多數元素)
+        public void MajorityElement(IMajorityElement leetCode)
+        {
+            int[] nums = { 2, 2, 1, 1, 1, 2, 2 };
+            int result = leetCode.MajorityElement(nums);
+            Console.WriteLine($"169.Majority Element 的答案是 {result}");
+        }
+
+        //171. Excel Sheet Column Number(Excel 工作表列號)
+        public void TitleToNumber(ITitleToNumber leetCode)
+        {
+            string columnTitle = "ZY";
+            int result = leetCode.TitleToNumber(columnTitle);
+            Console.WriteLine($"171.Excel Sheet Column Number 的答案是 {result}");
+        }
+
+        //190. Reverse Bits(反轉位)
+        public void ReverseBits(IReverseBits leetCode)
+        {
+            uint n = 000000101001010;
+            uint result = leetCode.ReverseBits(n);
+            Console.WriteLine($"190.Reverse Bits 的答案是 {result}");
+        }
+
+        //191. Number of 1 Bits(1 位數)
+        public void HammingWeight(IHammingWeight leetCode)
+        {
+            uint n = 00000000000000000000000000001011;
+            int result = leetCode.HammingWeight(n);
+            Console.WriteLine($"191.Number of 1 Bits 的答案是 {result}");
+        }
+
+        //202. Happy Number(快樂數)
+        public void IsHappy(IIsHappy leetCode)
+        {
+            int n = 19;
+            bool result = leetCode.IsHappy(n);
+            Console.WriteLine($"202.Happy Number 的答案是 {result}");
+        }
+
+        //205. Isomorphic Strings(同構弦)
+        public void IsIsomorphic(IIsIsomorphic leetCode)
+        {
+            string s = "egg";
+            string t = "add";
+            bool result = leetCode.IsIsomorphic(s, t);
+            Console.WriteLine($"205.Isomorphic Strings 的答案是 {result}");
+        }
     }
 }
