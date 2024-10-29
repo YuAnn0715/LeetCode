@@ -450,5 +450,53 @@ namespace LeetCode.test
             int result = leetCode.FindPoisonedDuration(timeSeries, duration);
             Console.WriteLine($"495.Teemo Attacking 的答案是 {result}");
         }
+
+        //500. Keyboard Row(鍵盤列)
+        public void FindWords(IFindWords leetCode)
+        {
+            string[] words = { "Hello", "Alaska", "Dad", "Peace" };
+            string[] result = leetCode.FindWords(words);
+            Console.WriteLine($"500.Keyboard Row 的答案是 {string.Join(", ", result)}");
+        }
+
+        //504. Base 7(基礎7)
+        public void ConvertToBase7(IConvertToBase7 leetCode)
+        {
+            int num = -7;
+            string result = leetCode.ConvertToBase7(num);
+            Console.WriteLine($"504.Base 7 的答案是 {result}");
+        }
+
+        //506. Relative Ranks(相對排名)
+        public void FindRelativeRanks(IFindRelativeRanks leetCode)
+        {
+            int[] score = { 10, 3, 8, 9, 4 };
+            string[] result = leetCode.FindRelativeRanks(score);
+            Console.WriteLine($"506.Relative Ranks 的答案是 {string.Join(", ", result)}");
+        }
+
+        //520. Detect Capital(檢查大寫)
+        public void DetectCapitalUse(IDetectCapitalUse leetCode)
+        {
+            string word = "USA";
+            bool result = leetCode.DetectCapitalUse(word);
+            Console.WriteLine($"520.Detect Capital 的答案是 {result}");
+        }
+
+        //551. Student Attendance Record I(學生出勤記錄 I)
+        public void CheckRecord(ICheckRecord leetCode)
+        {
+            string s = "ALLAPPL";
+            bool result = leetCode.CheckRecord(s);
+            Console.WriteLine($"551.Student Attendance Record I 的答案是 {result}");
+        }
+
+        //575. Distribute Candies(分發糖果)
+        public void DistributeCandies(IDistributeCandies leetCode)
+        {
+            int[] candyType = { 1, 1, 2, 2, 3, 3 };
+            int result = leetCode.DistributeCandies(candyType);
+            Console.WriteLine($"575.Distribute Candies(分發糖果) 的答案是 {result}");
+        }
     }
 }

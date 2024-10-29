@@ -64,6 +64,12 @@ namespace LeetCode
             IFindMaxConsecutiveOnes findMaxConsecutiveOnes = new FindMaxConsecutiveOnesCode();
             IConstructRectangle constructRectangle = new ConstructRectangleCode();
             IFindPoisonedDuration findPoisonedDuration = new FindPoisonedDurationCode();
+            IFindWords findWords = new FindWordsCode();
+            IConvertToBase7 convertToBase7 = new ConvertToBase7Code();
+            IFindRelativeRanks findRelativeRanks = new FindRelativeRanksCode();
+            IDetectCapitalUse detectCapitalUse = new DetectCapitalUseCode();
+            ICheckRecord checkRecord = new CheckRecordCode();
+            IDistributeCandies distributeCandies = new DistributeCandiesCode();
 
             Test test = new Test();
             //========================測試區=======================
@@ -221,303 +227,22 @@ namespace LeetCode
             test.FindPoisonedDuration(findPoisonedDuration);
 
             //500. Keyboard Row(鍵盤列)   *Submit完成
-            //string[] words = { "Hello", "Alaska", "Dad", "Peace" };
-            //string[] result = FindWords(words);
-            //foreach (string item in result)
-            //{
-            //    Console.WriteLine(item);
-            //}
+            test.FindWords(findWords);
 
             //504. Base 7(基礎7)  *Submit完成
-            //int num = -7;
-            //string result = ConvertToBase7(num);
-            //Console.WriteLine(result);
+            test.ConvertToBase7(convertToBase7);
 
             //506. Relative Ranks(相對排名)  *Submit完成
-            //int[] score = { 10, 3, 8, 9, 4 };
-            //string[] result = FindRelativeRanks(score);
-            //foreach (string item in result)
-            //{
-            //    Console.WriteLine(item);
-            //}
+            test.FindRelativeRanks(findRelativeRanks);
 
             //520. Detect Capital(檢查大寫)  *Submit完成
-            //string word = "USA";
-            //bool result = DetectCapitalUse(word);
-            //Console.WriteLine(result);
+            test.DetectCapitalUse(detectCapitalUse);
 
             //551. Student Attendance Record I(學生出勤記錄 I)  *Submit完成
-            //string s = "ALLAPPL";
-            //bool result=CheckRecord(s);
-            //Console.WriteLine(result);
+            test.CheckRecord(checkRecord);
 
             //575. Distribute Candies(分發糖果)   *Submit完成
-            //int[] candyType = { 1, 1, 2, 2, 3, 3 };
-            //int result = DistributeCandies(candyType);
-            //Console.WriteLine(result);
-
-            //int n = 2;
-            //int result = Fib(n);
-            //Console.WriteLine(result);
-
-        }
-        //=====================解題區=======================
-        //263.
-        //public bool IsUgly(int n)
-        //{
-        //    if (n == 1 || n == 2 || n == 3 || n == 5)
-        //    {
-        //        return true;
-        //    }
-        //    else
-        //    {
-        //        if (n % 2 == 0 || n % 3 == 0 )
-        //        {
-
-        //        }
-        //    }
-        //}
-        //500. Keyboard Row(鍵盤列)   *Submit完成
-        static string[] FindWords(string[] words)
-        {
-            string firstRow = "qwertyuiopQWERTYUIOP";
-            string secondRow = "asdfghjklASDFGHJKL";
-            string thirdRow = "zxcvbnmZXCVBNM";
-            List<string> answer = new List<string>();
-            for (int i = 0; i < words.Length; i++)
-            {
-                if (firstRow.Contains(words[i][0]))
-                {
-                    int count = 0;
-                    for (int j = 0; j < words[i].Length; j++)
-                    {
-                        if (!firstRow.Contains(words[i][j]))
-                        {
-                            break;
-                        }
-                        else
-                        {
-                            count++;
-                        }
-                        if (count == words[i].Length)
-                        {
-                            answer.Add(words[i]);
-                        }
-                    }
-                }
-                else if (secondRow.Contains(words[i][0]))
-                {
-                    int count = 0;
-                    for (int j = 0; j < words[i].Length; j++)
-                    {
-                        if (!secondRow.Contains(words[i][j]))
-                        {
-                            break;
-                        }
-                        else
-                        {
-                            count++;
-                        }
-                        if (count == words[i].Length)
-                        {
-                            answer.Add(words[i]);
-                        }
-                    }
-                }
-                else if (thirdRow.Contains(words[i][0]))
-                {
-                    int count = 0;
-                    for (int j = 0; j < words[i].Length; j++)
-                    {
-                        if (!thirdRow.Contains(words[i][j]))
-                        {
-                            break;
-                        }
-                        else
-                        {
-                            count++;
-                        }
-                        if (count == words[i].Length)
-                        {
-                            answer.Add(words[i]);
-                        }
-                    }
-                }
-            }
-            return answer.ToArray();
-        }
-
-        //504 Base 7(基礎7)  *Submit完成
-        static string ConvertToBase7(int num)
-        {
-            if (num == 0) return "0";
-            bool isNegative = num < 0;
-            num = Math.Abs(num);
-            List<string> convertToBase7 = [];
-            while (num > 0)
-            {
-                int remainder = num % 7;
-                convertToBase7.Insert(0, remainder.ToString());
-                num /= 7;
-            }
-            string result = string.Join("", convertToBase7);
-            return isNegative ? "-" + result : result;
-        }
-
-        //506. Relative Ranks(相對排名)  *Submit完成
-        static string[] FindRelativeRanks(int[] score)
-        {
-            List<string> rankList = new List<string>();
-            for (int i = 0; i < score.Length; i++)
-            {
-                int point = 0;
-                for (int j = 0; j < score.Length; j++)
-                {
-                    if (score[i] >= score[j])
-                    {
-                        point++;
-                    }
-                }
-                int rank = score.Length + 1 - point;
-                rankList.Add(rank.ToString());
-            }
-            for (int i = 0; i < rankList.Count; i++)
-            {
-                string rank = rankList[i];
-                int topThree = 0;
-                switch (rank)
-                {
-                    case "1":
-                        rankList[i] = "Gold Medal";
-                        topThree++;
-                        break;
-                    case "2":
-                        rankList[i] = "Silver Medal";
-                        topThree++;
-                        break;
-                    case "3":
-                        rankList[i] = "Bronze Medal";
-                        topThree++;
-                        break;
-                    default:
-                        break;
-                }
-                if (topThree == 3)
-                {
-                    break;
-                }
-            }
-            return rankList.ToArray();
-        }
-
-        //520. Detect Capital(檢查大寫)  *Submit完成
-        static bool DetectCapitalUse(string word)
-        {
-            List<char> upWord = new List<char>();
-            upWord = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
-            if (upWord.Contains(word[0]))
-            {
-                int upSum = 1;
-                for (int i = 1; i < word.Length; i++)
-                {
-                    if (upWord.Contains(word[i]))
-                    {
-                        upSum++;
-                    }
-                }
-                if (upSum == word.Length || upSum == 1)
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                //都小寫
-                for (int i = 1; i < word.Length; i++)
-                {
-                    if (upWord.Contains(word[i]))
-                    {
-                        return false;
-                    }
-                }
-                return true;
-            }
-        }
-
-        //551. Student Attendance Record I(學生出勤記錄 I)   *Submit完成
-        static bool CheckRecord(string s)
-        {
-            int sumA = 0;
-            for (int i = 0; i < s.Length; i++)
-            {
-                if (s[i] == 'A')
-                {
-                    sumA++;
-                }
-                if (s[i] == 'L')
-                {
-                    int sumL = 0;
-                    while (i < s.Length)
-                    {
-                        if (s[i] == 'L')
-                        {
-                            i++;
-                            sumL++;
-                        }
-                        else
-                        {
-                            i--;
-                            break;
-                        }
-                    }
-                    if (sumL >= 3)
-                    {
-                        return false;
-                    }
-                }
-            }
-            if (sumA >= 2)
-            {
-                return false;
-            }
-            else
-            {
-                return true;
-            }
-        }
-
-        //575. Distribute Candies(分發糖果)   *Submit完成
-        static int DistributeCandies(int[] candyType)
-        {
-            int halfCandies = candyType.Length / 2;
-            // 唯一元素HashSet
-            HashSet<int> uniqueCandies = new HashSet<int>();
-
-            // 計算不同type數量
-            foreach (int candy in candyType)
-            {
-                uniqueCandies.Add(candy);
-            }
-
-            // 取糖果種類跟一半糖果 哪個最小 return
-            // 如果糖果種類比吃一半小 那怎麼吃都只會只有種類數量 吃不到一半
-            // 反之  一半的數量比種類小 那怎麼吃 都只能吃一半的量
-            return Math.Min(uniqueCandies.Count, halfCandies);
-        }
-
-        public class ListNode
-        {
-            public int val;
-            public ListNode next;
-            public ListNode(int val = 0, ListNode next = null)
-            {
-                this.val = val;
-                this.next = next;
-            }
+            test.DistributeCandies(distributeCandies);
         }
     }
 }
