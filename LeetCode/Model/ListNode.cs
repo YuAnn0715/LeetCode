@@ -20,7 +20,7 @@ namespace LeetCode.Model
         {
             if (values.Length == 0)
             {
-                throw new ArgumentException("Values array must contain at least one element.");
+                throw new ArgumentException("ListNode錯誤");
             }
 
             this.val = values[0];
