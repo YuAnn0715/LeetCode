@@ -70,6 +70,7 @@ namespace LeetCode
             ICheckRecord checkRecord = new CheckRecordCode();
             IDistributeCandies distributeCandies = new DistributeCandiesCode();
             IReverseWords reverseWords = new ReverseWordsCode();
+            IFindRestaurant findRestaurant = new FindRestaurantCode();
 
             Test test = new Test();
             //========================測試區=======================
@@ -246,6 +247,9 @@ namespace LeetCode
 
             //575. Distribute Candies(分發糖果)   *Submit完成
             test.DistributeCandies(distributeCandies);
+
+            //599. Minimum Index Sum of Two Lists (兩個集合的最小索引和)
+            test.FindRestaurant(findRestaurant);
         }
     }
 }

@@ -12,7 +12,6 @@ namespace LeetCode
         public string ReverseWords(string s)
         {
             string[] words = s.Split(' ');
-            // 反轉每個單詞
             for (int i = 0; i < words.Length; i++)
             {
                 char[] charArray = words[i].ToCharArray();

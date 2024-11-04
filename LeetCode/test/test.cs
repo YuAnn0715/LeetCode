@@ -492,7 +492,7 @@ namespace LeetCode.test
         {
             string s = "Let's take LeetCode contest";
             string result = leetCode.ReverseWords(s);
-            Console.WriteLine($"557.Reverse Words in a String III(反轉字串中的文字 III) 的答案是 {result}");
+            Console.WriteLine($"557.Reverse Words in a String III 的答案是 {result}");
         }
 
         //575. Distribute Candies(分發糖果)
@@ -500,7 +500,16 @@ namespace LeetCode.test
         {
             int[] candyType = { 1, 1, 2, 2, 3, 3 };
             int result = leetCode.DistributeCandies(candyType);
-            Console.WriteLine($"575.Distribute Candies(分發糖果) 的答案是 {result}");
+            Console.WriteLine($"575.Distribute Candies 的答案是 {result}");
+        }
+
+        //599. Minimum Index Sum of Two Lists (兩個集合的最小索引和)
+        public void FindRestaurant(IFindRestaurant leetCode)
+        {
+            string[] list1 = { "happy", "sad", "good" };
+            string[] list2 = { "sad", "happy", "good" };
+            string[] result = leetCode.FindRestaurant(list1, list2);
+            Console.WriteLine($"599. Minimum Index Sum of Two Lists 的答案是 {string.Join(", ", result)}");
         }
     }
 }
