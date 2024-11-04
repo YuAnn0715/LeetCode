@@ -69,6 +69,7 @@ namespace LeetCode
             IDetectCapitalUse detectCapitalUse = new DetectCapitalUseCode();
             ICheckRecord checkRecord = new CheckRecordCode();
             IDistributeCandies distributeCandies = new DistributeCandiesCode();
+            IReverseWords reverseWords = new ReverseWordsCode();
 
             Test test = new Test();
             //========================測試區=======================
@@ -239,6 +240,9 @@ namespace LeetCode
 
             //551. Student Attendance Record I(學生出勤記錄 I)  *Submit完成
             test.CheckRecord(checkRecord);
+
+            //557. Reverse Words in a String III(反轉字串中的文字 III)  *Submit完成
+            test.ReverseWords(reverseWords);
 
             //575. Distribute Candies(分發糖果)   *Submit完成
             test.DistributeCandies(distributeCandies);

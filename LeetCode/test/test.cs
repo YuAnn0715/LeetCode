@@ -487,6 +487,14 @@ namespace LeetCode.test
             Console.WriteLine($"551.Student Attendance Record I 的答案是 {result}");
         }
 
+        //557. Reverse Words in a String III(反轉字串中的文字 III)
+        public void ReverseWords(IReverseWords leetCode)
+        {
+            string s = "Let's take LeetCode contest";
+            string result = leetCode.ReverseWords(s);
+            Console.WriteLine($"557.Reverse Words in a String III(反轉字串中的文字 III) 的答案是 {result}");
+        }
+
         //575. Distribute Candies(分發糖果)
         public void DistributeCandies(IDistributeCandies leetCode)
         {
