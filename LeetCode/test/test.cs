@@ -511,5 +511,13 @@ namespace LeetCode.test
             string[] result = leetCode.FindRestaurant(list1, list2);
             Console.WriteLine($"599. Minimum Index Sum of Two Lists 的答案是 {string.Join(", ", result)}");
         }
+
+        //628. Maximum Product of Three Numbers (三個數的最大乘積)
+        public void MaximumProduct(IMaximumProduct leetCode)
+        {
+            int[] nums = { -100, -98, -1, 2, 3, 4 };
+            int result = leetCode.MaximumProduct(nums);
+            Console.WriteLine($"628.Maximum Product of Three Numbers 的答案是 {result}");
+        }
     }
 }

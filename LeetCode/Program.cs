@@ -71,6 +71,7 @@ namespace LeetCode
             IDistributeCandies distributeCandies = new DistributeCandiesCode();
             IReverseWords reverseWords = new ReverseWordsCode();
             IFindRestaurant findRestaurant = new FindRestaurantCode();
+            IMaximumProduct maximumProduct = new MaximumProductCode();
 
             Test test = new Test();
             //========================測試區=======================
@@ -227,7 +228,7 @@ namespace LeetCode
             //495. Teemo Attacking(提摩攻擊)  *Submit完成
             test.FindPoisonedDuration(findPoisonedDuration);
 
-            //500. Keyboard Row(鍵盤列)   *Submit完成
+            //500. Keyboard Row(鍵盤列)  *Submit完成
             test.FindWords(findWords);
 
             //504. Base 7(基礎7)  *Submit完成
@@ -245,11 +246,14 @@ namespace LeetCode
             //557. Reverse Words in a String III(反轉字串中的文字 III)  *Submit完成
             test.ReverseWords(reverseWords);
 
-            //575. Distribute Candies(分發糖果)   *Submit完成
+            //575. Distribute Candies(分發糖果)  *Submit完成
             test.DistributeCandies(distributeCandies);
 
-            //599. Minimum Index Sum of Two Lists (兩個集合的最小索引和)
+            //599. Minimum Index Sum of Two Lists (兩個集合的最小索引和)  *Submit完成
             test.FindRestaurant(findRestaurant);
+
+            //628. Maximum Product of Three Numbers (三個數的最大乘積)  *Submit完成
+            test.MaximumProduct(maximumProduct);
         }
     }
 }
