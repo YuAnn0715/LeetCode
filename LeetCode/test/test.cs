@@ -519,5 +519,13 @@ namespace LeetCode.test
             int result = leetCode.MaximumProduct(nums);
             Console.WriteLine($"628.Maximum Product of Three Numbers 的答案是 {result}");
         }
+
+        //645. Set Mismatch(設定不匹配)
+        public void FindErrorNums(IFindErrorNums leetCode)
+        {
+            int[] nums = { 3, 2, 2 };
+            int[] result = leetCode.FindErrorNums(nums);
+            Console.WriteLine($"645.Set Mismatch 的答案是 {string.Join(", ", result)}");
+        }
     }
 }

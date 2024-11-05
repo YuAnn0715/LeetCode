@@ -72,6 +72,7 @@ namespace LeetCode
             IReverseWords reverseWords = new ReverseWordsCode();
             IFindRestaurant findRestaurant = new FindRestaurantCode();
             IMaximumProduct maximumProduct = new MaximumProductCode();
+            IFindErrorNums findErrorNums = new FindErrorNumsCode();
 
             Test test = new Test();
             //========================測試區=======================
@@ -254,6 +255,9 @@ namespace LeetCode
 
             //628. Maximum Product of Three Numbers (三個數的最大乘積)  *Submit完成
             test.MaximumProduct(maximumProduct);
+
+            //645. Set Mismatch(設定不匹配)  *Submit完成
+            test.FindErrorNums(findErrorNums);
         }
     }
 }
