@@ -528,6 +528,14 @@ namespace LeetCode.test
             Console.WriteLine($"645.Set Mismatch 的答案是 {string.Join(", ", result)}");
         }
 
+        //682. Baseball Game(棒球比賽)
+        public void CalPoints(ICalPoints leetCode)
+        {
+            string[] operations = { "1", "C" };
+            int result = leetCode.CalPoints(operations);
+            Console.WriteLine($"682.Baseball Game 的答案是 {result}");
+        }
+
         //709. To Lower Case(轉小寫)
         public void ToLowerCase(IToLowerCase leetCode)
         {

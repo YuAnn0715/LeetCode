@@ -74,6 +74,7 @@ namespace LeetCode
             IMaximumProduct maximumProduct = new MaximumProductCode();
             IFindErrorNums findErrorNums = new FindErrorNumsCode();
             IToLowerCase toLowerCase = new ToLowerCaseCode();
+            ICalPoints calPoints = new CalPointsCode();
 
             Test test = new Test();
             //========================測試區=======================
@@ -259,6 +260,9 @@ namespace LeetCode
 
             //645. Set Mismatch(設定不匹配)  *Submit完成
             test.FindErrorNums(findErrorNums);
+
+            //682. Baseball Game(棒球比賽)  *Submit完成
+            test.CalPoints(calPoints);
 
             //709. To Lower Case(轉小寫)  *Submit完成
             test.ToLowerCase(toLowerCase);
