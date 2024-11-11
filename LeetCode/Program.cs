@@ -73,6 +73,7 @@ namespace LeetCode
             IFindRestaurant findRestaurant = new FindRestaurantCode();
             IMaximumProduct maximumProduct = new MaximumProductCode();
             IFindErrorNums findErrorNums = new FindErrorNumsCode();
+            IToLowerCase toLowerCase = new ToLowerCaseCode();
 
             Test test = new Test();
             //========================測試區=======================
@@ -258,6 +259,9 @@ namespace LeetCode
 
             //645. Set Mismatch(設定不匹配)  *Submit完成
             test.FindErrorNums(findErrorNums);
+
+            //709. To Lower Case(轉小寫)  *Submit完成
+            test.ToLowerCase(toLowerCase);
         }
     }
 }

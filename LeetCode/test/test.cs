@@ -527,5 +527,13 @@ namespace LeetCode.test
             int[] result = leetCode.FindErrorNums(nums);
             Console.WriteLine($"645.Set Mismatch 的答案是 {string.Join(", ", result)}");
         }
+
+        //709. To Lower Case(轉小寫)
+        public void ToLowerCase(IToLowerCase leetCode)
+        {
+            string s = "Hello";
+            string result = leetCode.ToLowerCase(s);
+            Console.WriteLine($"709.To Lower Case 的答案是 {result}");
+        }
     }
 }
