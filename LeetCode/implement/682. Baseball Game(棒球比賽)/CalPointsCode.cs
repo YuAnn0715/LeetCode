@@ -25,7 +25,7 @@ namespace LeetCode
                     operationsList[i] = (Convert.ToInt32(operationsList[i - 1]) * 2).ToString();
                 }
                 else if (operationsList[i] == "+")
-                {
+                { 
                     operationsList[i] = (Convert.ToInt32(operationsList[i - 1]) + Convert.ToInt32(operationsList[i - 2])).ToString();
                 }
             }

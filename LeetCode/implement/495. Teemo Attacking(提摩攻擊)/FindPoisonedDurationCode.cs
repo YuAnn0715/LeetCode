@@ -25,7 +25,6 @@ namespace LeetCode
                     if (timeSeries[i] + duration <= timeSeries[i + 1])
                     {
                         secondCount += duration;
-
                     }
                     else
                     {

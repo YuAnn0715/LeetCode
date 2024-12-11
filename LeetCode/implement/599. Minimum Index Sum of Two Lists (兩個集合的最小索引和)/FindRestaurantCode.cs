@@ -20,11 +20,12 @@ namespace LeetCode
                 {
                     if (list1[i] == list2[j])
                     {
-                        if (!IndexSum.ContainsKey(dictionaryIndex))
+                        if (!IndexSum.TryGetValue(dictionaryIndex, out Dictionary<int, string>? value))
                         {
-                            IndexSum[dictionaryIndex] = new Dictionary<int, string>();
+                            value = new Dictionary<int, string>();
+                            IndexSum[dictionaryIndex] = value;
                         }
-                        IndexSum[dictionaryIndex].Add(i + j, list1[i]);
+                        value.Add(i + j, list1[i]);
                         dictionaryIndex++;
                     }
                 }

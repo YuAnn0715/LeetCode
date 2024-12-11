@@ -17,7 +17,7 @@ namespace LeetCode
                 List<string> needleList = needle.Select(c => c.ToString()).ToList();
                 if (haystackList.Count == 1 && needleList.Count == 1)
                 {
-                    return (0);
+                    return 0;
                 }
                 for (int i = 0; i < needleList.Count; i++)
                 {
@@ -40,11 +40,11 @@ namespace LeetCode
                         }
                     }
                 }
-                return (-1);
+                return -1;
             }
             else
             {
-                return (-1);
+                return -1;
             }
         }
     }
