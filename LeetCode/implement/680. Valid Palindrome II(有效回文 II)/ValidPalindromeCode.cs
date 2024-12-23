@@ -8,22 +8,25 @@ namespace LeetCode
 {
     public class ValidPalindromeCode
     {
-        //public bool ValidPalindrome(string s)
-        //{
-        //    char[] strings = s.ToCharArray();
-        //    string reS = strings.Reverse().ToString();
-        //    if (s == reS)
-        //    {
-        //        return true;
-        //    }
-        //    else
-        //    {
-        //        int halfIndex = s.Length / 2;
-               
+        public bool ValidPalindrome(string s)
+        {
+            char[] strings = s.ToCharArray();
+            string reS = strings.Reverse().ToString();
+            if (s == reS)
+            {
+                return true;
+            }
+            else
+            {
+                int halfIndex = s.Length / 2;
+                for (int i = 0; i < length; i++)
+                {
+
+                }
 
 
 
-        //    }
-        //}
+            }
+        }
     }
 }

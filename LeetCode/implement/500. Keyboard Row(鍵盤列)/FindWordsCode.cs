@@ -11,71 +11,40 @@ namespace LeetCode
         //500. Keyboard Row(鍵盤列)
         public string[] FindWords(string[] words)
         {
-            string firstRow = "qwertyuiopQWERTYUIOP";
-            string secondRow = "asdfghjklASDFGHJKL";
-            string thirdRow = "zxcvbnmZXCVBNM";
-            List<string> answer = new List<string>();
-            for (int i = 0; i < words.Length; i++)
+            string[] rows = new string[]
             {
-                if (firstRow.Contains(words[i][0]))
+                "qwertyuiopQWERTYUIOP",
+                "asdfghjklASDFGHJKL",
+                "zxcvbnmZXCVBNM"
+            };
+
+            List<string> answer = new List<string>();
+
+            foreach (string word in words)
+            {
+                foreach (string row in rows)
                 {
-                    int count = 0;
-                    for (int j = 0; j < words[i].Length; j++)
+                    if (IsWordInRow(word, row))
                     {
-                        if (!firstRow.Contains(words[i][j]))
-                        {
-                            break;
-                        }
-                        else
-                        {
-                            count++;
-                        }
-                        if (count == words[i].Length)
-                        {
-                            answer.Add(words[i]);
-                        }
-                    }
-                }
-                else if (secondRow.Contains(words[i][0]))
-                {
-                    int count = 0;
-                    for (int j = 0; j < words[i].Length; j++)
-                    {
-                        if (!secondRow.Contains(words[i][j]))
-                        {
-                            break;
-                        }
-                        else
-                        {
-                            count++;
-                        }
-                        if (count == words[i].Length)
-                        {
-                            answer.Add(words[i]);
-                        }
-                    }
-                }
-                else if (thirdRow.Contains(words[i][0]))
-                {
-                    int count = 0;
-                    for (int j = 0; j < words[i].Length; j++)
-                    {
-                        if (!thirdRow.Contains(words[i][j]))
-                        {
-                            break;
-                        }
-                        else
-                        {
-                            count++;
-                        }
-                        if (count == words[i].Length)
-                        {
-                            answer.Add(words[i]);
-                        }
+                        answer.Add(word);
+                        break;
                     }
                 }
             }
+
             return answer.ToArray();
+        }
+
+        private bool IsWordInRow(string word, string row)
+        {
+            foreach (char c in word)
+            {
+                if (!row.Contains(c))
+                {
+                    return false;
+                }
+            }
+            return true;
         }
     }
 }
