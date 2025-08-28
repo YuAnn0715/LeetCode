@@ -543,5 +543,14 @@ namespace LeetCode.test
             string result = leetCode.ToLowerCase(s);
             Console.WriteLine($"709.To Lower Case 的答案是 {result}");
         }
+
+        //771. Jewels and Stones(寶石與石頭)
+        public void NumJewelsInStones(INumJewelsInStones leetCode)
+        {
+            string jewels = "aA";
+            string stones = "aAAbbbb";
+            int result = leetCode.NumJewelsInStones(jewels, stones);
+            Console.WriteLine($"771. Jewels and Stones 的答案是 {result}");
+        }
     }
 }

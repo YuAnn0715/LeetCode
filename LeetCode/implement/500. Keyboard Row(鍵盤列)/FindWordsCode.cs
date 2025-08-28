@@ -11,15 +11,13 @@ namespace LeetCode
         //500. Keyboard Row(鍵盤列)
         public string[] FindWords(string[] words)
         {
-            string[] rows = new string[]
-            {
+            string[] rows =
+            [
                 "qwertyuiopQWERTYUIOP",
                 "asdfghjklASDFGHJKL",
                 "zxcvbnmZXCVBNM"
-            };
-
-            List<string> answer = new List<string>();
-
+            ];
+            List<string> answer = [];
             foreach (string word in words)
             {
                 foreach (string row in rows)
@@ -31,11 +29,10 @@ namespace LeetCode
                     }
                 }
             }
-
             return answer.ToArray();
-        }
+            }
 
-        private bool IsWordInRow(string word, string row)
+        private  bool IsWordInRow(string word, string row)
         {
             foreach (char c in word)
             {

@@ -10,23 +10,24 @@ namespace LeetCode
     {
         public bool ValidPalindrome(string s)
         {
-            char[] strings = s.ToCharArray();
-            string reS = strings.Reverse().ToString();
-            if (s == reS)
-            {
-                return true;
-            }
-            else
-            {
-                int halfIndex = s.Length / 2;
-                for (int i = 0; i < length; i++)
-                {
+            //char[] strings = s.ToCharArray();
+            //string reS = strings.Reverse().ToString();
+            //if (s == reS)
+            //{
+            //    return true;
+            //}
+            //else
+            //{
+            //    int halfIndex = s.Length / 2;
+            //    for (int i = 0; i < length; i++)
+            //    {
 
-                }
+            //    }
 
 
 
-            }
+            //}
+            return false;
         }
     }
 }

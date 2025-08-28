@@ -11,14 +11,16 @@ namespace LeetCode
         //13. Roman to Integer(羅馬數字轉整數)
         public int RomanToInt(string s)
         {
-            Dictionary<string, int> romanNumber = new Dictionary<string, int>();
-            romanNumber.Add("I", 1);
-            romanNumber.Add("V", 5);
-            romanNumber.Add("X", 10);
-            romanNumber.Add("L", 50);
-            romanNumber.Add("C", 100);
-            romanNumber.Add("D", 500);
-            romanNumber.Add("M", 1000);
+            Dictionary<string, int> romanNumber = new Dictionary<string, int>
+            {
+                { "I", 1 },
+                { "V", 5 },
+                { "X", 10 },
+                { "L", 50 },
+                { "C", 100 },
+                { "D", 500 },
+                { "M", 1000 }
+            };
             int romanTotal = 0;
             List<string> strSList = s.Select(c => c.ToString()).ToList();
             if (strSList.Count > 1)
@@ -77,7 +79,7 @@ namespace LeetCode
                     romanTotal += romanNumberValue;
                 }
             }
-            return (romanTotal);
+            return romanTotal;
         }
     }
 }

@@ -75,6 +75,7 @@ namespace LeetCode
             IFindErrorNums findErrorNums = new FindErrorNumsCode();
             IToLowerCase toLowerCase = new ToLowerCaseCode();
             ICalPoints calPoints = new CalPointsCode();
+            INumJewelsInStones numJewelsInStones = new NumJewelsInStonesCode();
 
             Test test = new Test();
             //========================測試區=======================
@@ -266,6 +267,9 @@ namespace LeetCode
 
             //709. To Lower Case(轉小寫)  *Submit完成
             test.ToLowerCase(toLowerCase);
+
+            //771. Jewels and Stones(寶石與石頭)  *Submit完成
+            test.NumJewelsInStones(numJewelsInStones);
         }
     }
 }
