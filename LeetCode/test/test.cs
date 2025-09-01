@@ -512,6 +512,15 @@ namespace LeetCode.test
             Console.WriteLine($"599. Minimum Index Sum of Two Lists 的答案是 {string.Join(", ", result)}");
         }
 
+        //605. Can Place Flowers(可以種花嗎)
+        public void CanPlaceFlowers(ICanPlaceFlowers leetCode)
+        {
+            int[] flowerbed = { 0, 0, 0, 1 };
+            int n = 1;
+            bool result = leetCode.CanPlaceFlowers(flowerbed, n);
+            Console.WriteLine($"605.Can Place Flowers 的答案是 {result}");
+        }
+
         //628. Maximum Product of Three Numbers (三個數的最大乘積)
         public void MaximumProduct(IMaximumProduct leetCode)
         {

@@ -76,6 +76,7 @@ namespace LeetCode
             IToLowerCase toLowerCase = new ToLowerCaseCode();
             ICalPoints calPoints = new CalPointsCode();
             INumJewelsInStones numJewelsInStones = new NumJewelsInStonesCode();
+            ICanPlaceFlowers canPlaceFlowers = new CanPlaceFlowersCode();
 
             Test test = new Test();
             //========================測試區=======================
@@ -256,6 +257,9 @@ namespace LeetCode
             //599. Minimum Index Sum of Two Lists (兩個集合的最小索引和)  *Submit完成
             test.FindRestaurant(findRestaurant);
 
+            //605. Can Place Flowers(可以種花嗎)  *Submit完成
+            test.CanPlaceFlowers(canPlaceFlowers);
+
             //628. Maximum Product of Three Numbers (三個數的最大乘積)  *Submit完成
             test.MaximumProduct(maximumProduct);
 
@@ -270,6 +274,8 @@ namespace LeetCode
 
             //771. Jewels and Stones(寶石與石頭)  *Submit完成
             test.NumJewelsInStones(numJewelsInStones);
+
+            
         }
     }
 }
